@@ -1,4 +1,4 @@
-# Preface {.unnumbered}
+# Préface {.unnumbered}
 
 Ceci est un livre Quarto.
 
