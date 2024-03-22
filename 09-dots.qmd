@@ -1,0 +1,44 @@
+---
+title: "Dots"
+---
+
+> **Votre fonction `save_as_csv()` est chouette, mais elle ne permet pas de modifier l’encodage. Votre formateurice vous a donc ouvert une issue, il y a quelques temps à ce sujet: 
+“[bug] Modifier la fonction save_as_csv() pour avoir la possibilité de modifier l’encodage”. 
+Maintenant que vous en savez plus sur les dots, vous êtes en mesure de la prendre en charge.**
+
+## Modifier l'issue
+
+- Rendez-vous sur votre projet GitLab
+
+- Modifiez le contenu de l’issue : Modifier la fonction `save_as_csv()` pour qu’elle soit capable de prendre en entrée tous les paramètres de `write.csv2()`
+
+  - Assignez cette issue à vous-même
+  
+## Prendre en charge l’issue
+
+- Créez une nouvelle branche de développement depuis *main* (vous pouvez le faire directement depuis GitLab, directement dans l’issue concernée)
+
+- Faites un pull
+
+- Dans la branche de développement, prenez en charge l’issue : effectuez les modifications demandées sur la fonction `save_as_csv()` pour qu’elle soit capable de prendre en entrée tous les paramètres de `write.csv2()`
+
+- Vérifiez le package
+
+::: {.callout-note collapse="false"}
+
+Il doit retourner 0 errors 0 warnings 0 notes
+
+:::
+
+::: {.callout-note collapse="false"}
+
+Ne pas tenir compte des notes sur les global functions or variables lors du check
+
+:::
+
+- Faites un commit et un push
+
+- Ouvrez une Merge Request pour proposer la fusion de vos développements dans la branche *main* et assignez-la à vous-même
+
+- Acceptez votre MR
+

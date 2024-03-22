@@ -24,8 +24,10 @@ book:
       text: Versionnement
     - href: 07-check_param.qmd
       text: Vérification des paramètres
-    - href: 08_first_merge_requests.qmd
+    - href: 08-first_merge_requests.qmd
       text: Premières Merge Requests
+    - href: 09-dots.qmd
+      text: Dots
     - summary.qmd
     - references.qmd
 
