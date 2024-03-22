@@ -2,9 +2,11 @@
 title: "Dots"
 ---
 
-> **Votre fonction `save_as_csv()` est chouette, mais elle ne permet pas de modifier l’encodage. Votre formateurice vous a donc ouvert une issue, il y a quelques temps à ce sujet: 
-“[bug] Modifier la fonction save_as_csv() pour avoir la possibilité de modifier l’encodage”. 
-Maintenant que vous en savez plus sur les dots, vous êtes en mesure de la prendre en charge.**
+> Votre fonction `save_as_csv()` est chouette, mais elle ne permet pas de modifier l’encodage. Votre formateurice vous a donc ouvert une issue, il y a quelques temps à ce sujet:
+>
+>***"[bug] Modifier la fonction save_as_csv() pour avoir la possibilité de modifier l’encodage".*** 
+>
+>Maintenant que vous en savez plus sur les dots, vous êtes en mesure de la prendre en charge.**
 
 ## Modifier l'issue
 
