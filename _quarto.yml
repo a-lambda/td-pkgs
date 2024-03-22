@@ -9,6 +9,8 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - href: td.qmd
+      text: TD développement de package
     - summary.qmd
     - references.qmd
 
