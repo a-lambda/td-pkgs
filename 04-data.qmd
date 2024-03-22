@@ -1,0 +1,39 @@
+---
+title: "Données"
+---
+
+## Données accessibles à l'utilisateur final
+
+- Créez un jeu de données `data_act_squirrels` qui sera accessible à l’utilisateur avec `data(data_act_squirrels)`
+
+  - Utilisez le fichier `nyc_squirrels_act_sample.csv` (présent dans votre dossier `data` de bakacode)
+
+  - Gardez uniquement 15 lignes de ce jeu de données
+  
+  - Documentez ce jeu de données et de mettez la documentation à jour avec `attachment::att_amend_desc()`
+  
+  - Installez votre package, vérifiez que `data(data_act_squirrels)` et `?data_act_squirrels` fonctionnent correctement
+  
+## Données stockées dans `inst/`
+
+- Intégrez le fichier `nyc_squirrels_sample.csv` dans `inst/` (présent dans votre dossier `data` de bakacode)
+
+- Dans le fichier flat `flat_check_data.Rmd`, créez une fonction `check_squirrel_data_integrity()` qui prend comme input un jeu de données comme celui-ci et vérifie son intégrité :
+
+  - La fonction vérifie que les données contiennent une colonne `primary_fur_color`, et cette colonne ne doit contenir que des couleurs autorisées (voir votre fonction `check_primary_color_is_ok()`)
+  
+  - Arrêter la fonction si ce n’est pas le cas
+  
+  - Retourner un message si tout est correct
+  
+- Créez un exemple reproductible en utilisant le jeu de données enregistré dans `inst/` avec `system.file()`
+
+  - Pensez que vous pouvez simuler l’installation des données avec `pkgload::load_all()`
+  
+- Créez des tests unitaires avec des exemples où la fonction doit échouer
+
+::: {.callout-note collapse="false"}
+
+Votre package doit retourner 0 errors 0 warnings 0 notes
+
+:::
