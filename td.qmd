@@ -166,4 +166,35 @@ remotes::install_local(path = "~/squirrels_0.0.0.9000.tar.gz") # installe le pac
 
 - Si ce n’est pas le cas, prenez du temps pour corriger les problèmes
 
+## Versionnement
+
+### Mise en place du versionnement
+
+- Créez un projet sur GitLab
+
+  - Il doit être créé dans le sous-groupe qui vous est dédié, fraîchement créé par votre formateurice
+  
+  - Il doit être en mode “public”
+  
+  - Il doit porter le nom de votre package : `squirrels`
+  
+  - Invitez le membre `examinateur@thinkr.fr` sur votre repo, et attribuez lui des droits de **Maintainer**. Pour cela, allez dans *Project information > Members > Invite members*
+  
+- Transformez votre package en projet git
+
+```{r}
+#| label: use_git
+#| eval: false
+
+usethis::use_git()
+
+```
+
+- Créez le lien entre le projet GitLab et le projet RStudio
+
+### Premières modifications versionnées
+
+- Faites une modification sur le README de votre package
+
+- Commit / Push
 
