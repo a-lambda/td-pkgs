@@ -30,6 +30,8 @@ book:
       text: Dots
     - href: 10-advanced_doc.qmd
       text: Documentation avancée
+    - href: 11-tidyeval.qmd
+      text: Tidyeval
     - summary.qmd
     - references.qmd
 

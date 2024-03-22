@@ -1,0 +1,19 @@
+---
+title: "Tidyeval"
+---
+
+::: {.callout-important collapse="false"}
+
+Les développements suivants doivent être réalisés dans une branche de développement
+
+:::
+
+- Corrigez les notes sur les global functions or variables au check
+
+::: {.callout-note collapse="false"}
+
+Votre package doit retourner 0 errors 0 warnings 0 notes
+
+:::
+
+- Pushez vos modifications sur le remote
