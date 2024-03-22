@@ -1,0 +1,89 @@
+---
+title: "Tests unitaires"
+---
+
+## Tester la fonction `get_message_fur_color()`
+
+- Ajoutez des vérifications à votre fonction `get_message_fur_color()`
+
+Pour le moment, vous vous êtes seulement assuré.e que la fonction renvoyait bien `"We will focus on Cinnamon squirrels"` lorsqu’on utilisait `get_message_fur_color(primary_fur_color = "Cinnamon")`. Mais vous pouvez ajouter des vérifications supplémentaires.
+
+- Regonflez votre package avec ces nouveaux tests unitaires
+
+- Observez la sortie de la commande suivante :
+
+```{r}
+#| label: devtools_test
+#| eval: false
+
+devtools::test()
+
+```
+
+## Ajouter et tester la fonction `check_primary_color_is_ok()`
+
+- Ajoutez un nouveau fichier flat dédié à la vérification des données
+
+```{r}
+#| label: add_flat_template
+#| eval: false
+
+fusen::add_flat_template(template  = "additional",
+                         flat_name = "check_data")
+
+```
+
+- Définissez un nouveau nom pour la future vignette (dans le chunk d’inflate)
+
+```{r}
+#| label: inflate
+#| eval: false
+
+fusen::inflate(flat_file     = "dev/flat_check_data.Rmd", 
+               vignette_name = "Check data")
+
+```
+
+- Intégrez-y la fonction `check_primary_color_is_ok()`
+
+```{r}
+#| label: add_function_check_primary_color_is_ok
+#| eval: false
+
+#' Check the values of primary fur color
+#'
+#' @param string Character. A vector with the primary fur color.
+#'
+#' @return Boolean. TRUE if all colors are correct.
+#' @export
+#'
+#' @examples
+check_primary_color_is_ok <- function(string) {
+  all_colors_OK <- all(
+    string %in% c("Gray", "Cinnamon", "Black", NA)
+  )
+  return(all_colors_OK)
+}
+
+```
+
+- Modifiez cette fonction `check_primary_color_is_ok()` de telle manière à ce qu’elle renvoie une erreur si le vecteur n’est pas OK (le message d’erreur doit être explicite)
+
+- N'oubliez pas les exemples et les tests
+
+## Vérifier le package
+
+- Votre package doit retourner 0 errors 0 warnings 0 notes
+
+- Vérifiez que votre package peut s’installer sans encombres
+
+```{r}
+#| label: build_and_install_local
+#| eval: false
+
+devtools::build(vignettes = TRUE) # construit le package au format tar.gz
+remotes::install_local(path = "~/squirrels_0.0.0.9000.tar.gz") # installe le package depuis le format tar.gz
+
+```
+
+> **Est-ce que les fonctions `get_message_fur_color()` et `check_primary_color_is_ok()` sont accessibles ?**
