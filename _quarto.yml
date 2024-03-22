@@ -28,6 +28,8 @@ book:
       text: Premières Merge Requests
     - href: 09-dots.qmd
       text: Dots
+    - href: 10-advanced_doc.qmd
+      text: Documentation avancée
     - summary.qmd
     - references.qmd
 

@@ -1,0 +1,43 @@
+---
+title: "Documentation avancée"
+---
+
+::: {.callout-important collapse="false"}
+
+Les développements suivants doivent être réalisés dans une branche de développement
+
+:::
+
+## Ajouter une fonction `launch_help()`
+
+- Ajoutez un nouveau fichier flat dans votre package, nommé `flat_utils.Rmd` et créez dedans une fonction `launch_help()` pour que l’utilisateur puisse afficher le pkgdown. Aidez vous de la slide du cours pour écrire cette fonction.
+
+- Reconstruisez le pkgdown de votre package - il a bien évolué depuis la dernière fois
+
+::: {.callout-note collapse="false"}
+
+Votre package doit retourner 0 errors 0 warnings 0 notes
+
+:::
+
+::: {.callout-note collapse="false"}
+
+Ne pas tenir compte des notes sur les global functions or variables au check
+
+:::
+
+- Réinstallez le package et vérifiez que le pkgdown s’ouvre bien
+
+```{r}
+#| label: advanced_doc
+#| eval: false
+
+devtools::build(vignettes = TRUE) # construit le package au format tar.gz
+remotes::install_local(path = "~/squirrels_0.0.0.9000.tar.gz") # installe le package depuis le format tar.gz
+squirrels::launch_help()
+
+```
+
+## Versionner les développements
+
+- Pushez vos modifications sur le remote
