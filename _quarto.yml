@@ -19,6 +19,7 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    code-overflow: wrap
   pdf:
     documentclass: scrreprt
 
