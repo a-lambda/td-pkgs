@@ -24,8 +24,8 @@ book:
       text: Versionnement
     - href: 07-check_param.qmd
       text: Vérification des paramètres
-    - href: td.qmd
-      text: TD développement de package
+    - href: 08_first_merge_requests.qmd
+      text: Premières Merge Requests
     - summary.qmd
     - references.qmd
 

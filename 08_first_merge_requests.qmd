@@ -1,0 +1,115 @@
+---
+title: "Premières Merge Requests"
+---
+
+## Une Merge Request seul.e
+
+### Ouvrir une issue
+
+- Rendez-vous sur votre projet GitLab
+
+- Créez une issue *“Modifier le README pour indiquer que ce package a été créé dans le cadre d’une formation N2”*
+
+  - Indiquez dedans ce qui est attendu : Modifier le README pour indiquer que ce package a été créé dans le cadre d’une formation N2
+  
+  - Assignez cette issue à vous-même
+  
+### Prendre en charge l’issue
+
+- Créez une nouvelle branche de développement depuis *main* (vous pouvez le faire directement depuis GitLab, dans l’issue concernée)
+
+- Faites un pull
+
+- Dans la branche de développement, prenez en charge l’issue : effectuez les modifications demandées sur le fichier README
+
+- Faites un commit et un push
+
+### Ouvrir une MR et la prendre en charge
+
+- Ouvrez une Merge Request pour proposer la fusion de vos développements dans la branche `main` et assignez-la à vous-même
+
+- Mergez vous-même votre MR
+
+## Une Merge Request collaborative
+
+::: {.callout-note collapse="true"}
+
+Vous allez maintenant tous.tes travailler sur le repo de votre formateurice. Et vous allez devoir reviewer le travail d’un.e de vos camarades.
+
+:::
+
+::: {.callout-important collapse="false"}
+## Message préalable à destination des formateurices
+
+Pour cette partie, les apprenant.e.s vont travailler sur votre projet
+
+:::
+
+- Assurez-vous qu’ielles soient tous.tes des membres de votre repo, et qu’ielles aient des droits de **`Developers`**. Assurez-vous également que la branche *main* soit protégée des push, et que seuls les `Maintainers` aient le droit d’accepter les merge requests vers `main`.
+
+- Ouvrez **une issue par apprenant.e** : 
+
+  -  "Ajouter une fonction `get_welcome_message_*()`", où * est le prénom de l’apprenant.e (par exemple, `get_welcome_message_simone()`).
+  
+  Cette issue doit contenir la description suivante : 
+  
+  “Créer une fonction qui s’appelle `get_welcome_message_simone()`, et qui renvoie le message :
+  
+  "Hey ! Nous sommes le 23/01/2023, c'est un super jour pour aller observer les écurueils, non ?"
+  
+  est appelée de la manière suivante : `get_welcome_message_simone(date = "23/01/2023")`.
+  
+  - Cette fonction doit être testée et documentée.
+  
+```{r}
+#| label: get_welcome_message
+#| eval: false
+
+get_welcome_message_simone(date = "23/01/2023")
+
+```
+
+
+```{r}
+#| label: get_welcome_message_return_value
+#| eval: false
+
+## Hey ! Nous sommes le 23/01/2023, c'est un super jour pour aller observer les écureuils, non ?
+```
+
+- Les apprenant.e.s vont travailler seul.e pour prendre en charge leur issue. Mais ils seront chargé.e.s de reviewer la MR d’une autre personne. Pour cela, il faut créer "une chaîne" de binômes. Si vous avez des apprenant.e.s A, B, C, D dans votre groupe, alors :
+
+  - A assigne la MR à B
+  - B assigne la MR à C
+  - C assigne la MR à D
+  - D assigne la MR de à A
+  
+Donnez ces infos aux apprenant.e.s, pour qu’ielles sachent exactement à qui assigner la MR le moment venu.
+
+### Prendre en charge l’issue
+
+- Rendez-vous sur le projet GitLab de votre formateurice
+
+- Clonez le repo dans bakacode, **à un endroit différent de celui où vous avez stocké votre propre repo**
+
+- Créez une nouvelle branche de développement depuis *main*
+
+- Faites un pull
+
+- Prenez en charge l’issue (création de la fonction, testée et documentée)
+
+- Faites un commit et un push
+
+### Ouvrir une MR et l’assigner à son.sa camarade
+
+- Ouvrez une Merge Request pour proposer la fusion de vos développements dans la branche *main* et assignez-la à la personne qui vous a été indiquée par votre formateurice
+
+*Entre temps, l’un.e de vos camarades aura fait la même chose pour vous.*
+
+### Reviewer la MR qui vous attend
+
+- Récupérez la branche de votre camarade
+
+- Vérifiez que tout est OK. A défaut, vous pouvez amender son travail en poussant de nouveaux commits dans sa branche. Ils apparaîtront aussi dans la MR.
+
+- Cliquez sur "Approve" dans la MR si tout est OK
