@@ -32,7 +32,7 @@ title: "Premières Merge Requests"
 
 ## Une Merge Request collaborative
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="false"}
 
 Vous allez maintenant tous.tes travailler sur le repo de votre formateurice. Et vous allez devoir reviewer le travail d’un.e de vos camarades.
 
@@ -49,16 +49,17 @@ Pour cette partie, les apprenant.e.s vont travailler sur votre projet
 
 - Ouvrez **une issue par apprenant.e** : 
 
-  -  "Ajouter une fonction `get_welcome_message_*()`", où * est le prénom de l’apprenant.e (par exemple, `get_welcome_message_simone()`).
+  - "Ajouter une fonction `get_welcome_message_*()`", où * est le prénom de l’apprenant.e (par exemple, `get_welcome_message_simone()`).
   
-  Cette issue doit contenir la description suivante : 
+::: {.callout-tip collapse="false"}
+## Cette issue doit contenir la description suivante
   
-  “Créer une fonction qui s’appelle `get_welcome_message_simone()`, et qui renvoie le message :
+"Créer une fonction qui s’appelle `get_welcome_message_simone()`, et qui renvoie le message **"Hey ! Nous sommes le 23/01/2023, c'est un super jour pour aller observer les écurueils, non ?"** quand elle est appelée de la manière suivante :
   
-  "Hey ! Nous sommes le 23/01/2023, c'est un super jour pour aller observer les écurueils, non ?"
-  
-  est appelée de la manière suivante : `get_welcome_message_simone(date = "23/01/2023")`.
-  
+`get_welcome_message_simone(date = "23/01/2023")`.
+
+:::  
+
   - Cette fonction doit être testée et documentée.
   
 ```{r}
@@ -104,7 +105,11 @@ Donnez ces infos aux apprenant.e.s, pour qu’ielles sachent exactement à qui a
 
 - Ouvrez une Merge Request pour proposer la fusion de vos développements dans la branche *main* et assignez-la à la personne qui vous a été indiquée par votre formateurice
 
-*Entre temps, l’un.e de vos camarades aura fait la même chose pour vous.*
+::: {.callout-note collapse="false"}
+
+Entre temps, l’un.e de vos camarades aura fait la même chose pour vous.
+
+:::
 
 ### Reviewer la MR qui vous attend
 
