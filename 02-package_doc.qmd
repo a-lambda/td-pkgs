@@ -1,0 +1,25 @@
+---
+title: "Documentation du package"
+---
+
+- Construisez le site web pkgdown
+
+- Ajoutez un README qui explique en quoi consiste ce package dédié aux écureuils
+
+*Vous pouvez vous inspirer de celui de [{fusen}](https://github.com/ThinkR-open/fusen/blob/main/README.Rmd)^[https://github.com/ThinkR-open/fusen/blob/main/README.Rmd], et y intégrer cet hex si vous le souhaitez (disponible dans le dossier `data` de bakacode) :*
+
+![](images/squirrels_hex.png){ width="25%" }
+
+- Ajoutez un Code of Conduct
+
+- Ajoutez un fichier NEWS
+
+- Construisez de nouveau le site web pkgdown
+
+- Construisez le rapport de coverage
+
+::: {.callout-note collapse="true"}
+
+Votre package doit retourner 0 errors 0 warnings 0 notes
+
+:::
