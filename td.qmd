@@ -198,3 +198,165 @@ usethis::use_git()
 
 - Commit / Push
 
+## Vérification des paramètres
+
+### Ajouter la fonction `study_activity()`
+
+- Dans votre fichier flat `flat_study_squirrels.Rmd`, intégrez la fonction `study_activity()` :
+
+```{r}
+#| label: study_activity
+#| eval: false
+
+#' Study the activities of the squirrels given a primary fur color
+#'
+#' @param df_squirrels_act Data frame. A dataset with the activities of the squirrels. This dataset mush have at leat these 4 columns: "age", "primary_fur_color", "activity", "counts".
+#' @param col_primary_fur_color Character. The color of the primary fur color of interest. Only the squirrels with this primary fur color will be considered in the analysis.
+#' 
+#' @importFrom dplyr filter
+#' @importFrom ggplot2 ggplot aes geom_col scale_fill_manual labs
+#'
+#' @return A list of two named elements. The first one is the filtered table. The second one is the ggplot.
+#' @export
+#'
+#' @examples
+study_activity <- function(df_squirrels_act, col_primary_fur_color) {
+  
+  if(isFALSE(is.data.frame(df_squirrels_act))) {
+    stop("df_squirrels_act is not a data frame")
+  }
+  
+  if(isFALSE(is.character(col_primary_fur_color))) {
+    stop("col_primary_fur_color is not a character vector")
+  }
+  
+  
+  table <- df_squirrels_act |> 
+    filter(primary_fur_color == col_primary_fur_color)
+    
+  graph <- table |> 
+    ggplot() +
+    aes(x = activity, y = counts, fill = age) +
+    geom_col() +
+    labs(x = "Type of activity",
+         y = "Number of observations",
+         title = glue("Type of activity by age for {tolower(col_primary_fur_color)} squirrels")) +
+    scale_fill_manual(name = "Age",
+                      values = c("#00688B", "#00BFFF"))
+  
+  return(list(table = table, graph = graph))
+}
+
+```
+
+- Cette fonction `study_activity()` utilise plusieurs nouveaux packages. Pensez à les ajouter dans votre chunck de développement afin de les rendre disponibles pour les développeurs.
+
+- Ajoutez un appel à `check_squirrel_data_integrity()` au tout début de la fonction pour vous assurer de l’intégrité des données
+
+- Ajoutez un exemple :
+
+```{r}
+#| label: study_activity_example
+#| eval: false
+
+data(data_act_squirrels)
+study_activity(df_squirrels_act      = data_act_squirrels, 
+               col_primary_fur_color = "Gray")
+
+```
+
+- Ajoutez des tests unitaires
+
+- Réalisez un inflate de votre fichier flat. Le check de votre package doit renvoyer : `0 errors, 0 warnings`
+
+- Capturez l’état de votre package avec un commit
+
+> **Ne pas tenir compte des notes sur les global functions ou variables**
+
+### Créer la fonction `save_as_csv()`
+
+- Dans votre fichier flat `flat_study_squirrels.Rmd`, créez une fonction `save_as_csv()` qui :
+
+  - prend en paramètres un **jeu de données** et une chaîne de caractères qui correspond au chemin du fichier qui doit être créé
+  
+  - permet d’enregistrer le jeu de données en csv avec la fonction `write.csv2()` du package `{utils}` au **chemin spécifié**
+  
+  - renvoie en sortie le chemin complet du csv créé
+  
+  - vérifie les différents paramètres de l’utilisateur:
+  
+    - Vous pouvez vérifier que le jeu de données est bien de classe `data.frame`
+    
+    - Vous pouvez vérifier que le jeu de données n’a pas un nombre de lignes nul
+    
+    - Vous pouvez vérifier que la chaîne de caractères qui correspond au chemin du fichier a bien l’extension .csv (voir la fonction `file_ext()` du package `{tools}`)
+    
+    - Vous pouvez vérifier que le dossier dans lequel doit être stocké le fichier existe
+    
+**Pour vous aider :**
+
+- Ces lignes doivent fonctionner :
+  
+```{r}
+#| label: tests_sans_erreur
+#| eval: false
+
+# Création d'un dossier temporaire
+mon_dossier_temp <- tempfile(pattern = "savecsv")
+dir.create(mon_dossier_temp)
+
+# ok : le fichier .csv est enregistré dans le projet actuel
+iris |> save_as_csv(file.path(mon_dossier_temp, "output.csv"))
+
+# ok : le fichier .csv est enregistré et le fichier s'ouvre
+iris |> save_as_csv(file.path(mon_dossier_temp, "output.csv")) |> browseURL()  
+
+```
+  
+- Ces lignes doivent retourner une erreur explicite :
+
+```{r}
+#| label: tests_avec_erreur
+#| eval: false
+
+# erreur : l'extension du fichier à créer n'est pas la bonne
+iris |> save_as_csv(file.path(mon_dossier_temp, "output.xlsx")) 
+
+# erreur : la fonction n'est pas appliquée à un data.frame
+NULL |> save_as_csv(file.path(mon_dossier_temp, "output.csv"))
+
+# erreur : le chemin où doit être enregistré le fichier n'existe pas
+iris |> save_as_csv(file.path(mon_dossier_temp, "nexiste/pas/output.csv")) 
+
+```
+
+- En guise d’exemple reproductible de votre fonction, faites en sorte d’exporter la table créée en sortie de la fonction `study_activity()` que vous avez intégrée précédemment
+
+  - Exportez le fichier csv dans un dossier temporaire pour ne pas polluer le package
+  
+- En vous aidant de la documentation de la fonction `study_activity()`, ajoutez la documentation pour la fonction `save_as_csv()`
+
+- Ajoutez des tests unitaires
+
+- Réalisez un inflate de votre fichier flat. Le check de votre package doit renvoyer : `0 errors, 0 warnings`
+
+- Capturez l’état de votre projet avec un commit et pushez vos modifications sur le remote
+
+> **Ne pas tenir compte des notes sur les global functions or variables lors du check**
+
+### Versionner les développements
+
+- Versionner les développements
+
+- Pushez vos modifications une fois vos modifications terminées
+
+- Votre remote doit contenir vos deux nouvelles fonctions
+
+*Message à destination des formateurices :*
+
+> **Ouvrir une issue sur le projet GitLab de chaque apprenant(e):**
+
+- Ouvrez **une issue par apprenant.e** dont le titre est : *“[bug] Modifier la fonction save_as_csv() pour avoir la possibilité de modifier l’encodage”*
+
+
+
