@@ -70,13 +70,11 @@ get_welcome_message_simone(date = "23/01/2023")
 
 ```
 
+::: {.callout-note appearance="minimal"}
 
-```{r}
-#| label: get_welcome_message_return_value
-#| eval: false
+**## Hey ! Nous sommes le 23/01/2023, c'est un super jour pour aller observer les écureuils, non ?**
 
-## Hey ! Nous sommes le 23/01/2023, c'est un super jour pour aller observer les écureuils, non ?
-```
+:::
 
 - Les apprenant.e.s vont travailler seul.e pour prendre en charge leur issue. Mais ils seront chargé.e.s de reviewer la MR d’une autre personne. Pour cela, il faut créer "une chaîne" de binômes. Si vous avez des apprenant.e.s A, B, C, D dans votre groupe, alors :
 
