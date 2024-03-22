@@ -3,8 +3,8 @@ project:
   output-dir: docs
 
 book:
-  title: "ThinkR"
-  author: "Norah Jones"
+  title: "ThinkR - Création de packages"
+  author: "anonymous"
   date: "22/03/2024"
   chapters:
     - index.qmd
