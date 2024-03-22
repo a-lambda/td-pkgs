@@ -160,7 +160,11 @@ remotes::install_local(path = "~/squirrels_0.0.0.9000.tar.gz") # installe le pac
 
 > **Votre package doit retourner 0 errors 0 warnings 0 notes**
 
+## Check
 
+- Relancez le check de votre package et assurez-vous qu’il renvoie 0 errors 0 warnings 0 notes
+
+- Si ce n’est pas le cas, prenez du temps pour corriger les problèmes
 
 
 
