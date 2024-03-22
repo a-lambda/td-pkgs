@@ -1,0 +1,11 @@
+# Preface {.unnumbered}
+
+Ceci est un livre Quarto.
+
+Pour en apprendre plus sur le sujet vous pouvez visiter <https://quarto.org/docs/books>.
+
+J'ai tenté de transformer la page de TD du cours en un ensemble de pages plus digestes pour moi.
+
+Cela ne veut pas dire que cela conviendra à tout le monde.
+
+Pour la suite rendez-vous à la page introduction ... et que chacun prenne un malin plaisir à découvrir les trésors que recèlent la création de packages et son pendant natif le bien-nommé gestion de versions collaborative :)
