@@ -1,0 +1,8 @@
+# Introduction
+
+*Nous allons reprendre votre package `{squirrels}` qui sert de fil rouge tout au long de la formation.*
+
+*Utlisez la table des matières de ce document pour naviguer plus facilement dans les différentes sections.*
+
+*Les solutions de ce TD vous seront fournies dans `/shared` à la fin de chaque étape, sous la forme de fichiers `flat_*.Rmd` et `dev_history.Rmd`.*
+
