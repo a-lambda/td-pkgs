@@ -18,7 +18,7 @@ title: "Documentation du package"
 
 - Construisez le rapport de coverage
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="false"}
 
 Votre package doit retourner 0 errors 0 warnings 0 notes
 
