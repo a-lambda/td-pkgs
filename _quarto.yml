@@ -3,6 +3,7 @@ project:
   output-dir: docs
 
 book:
+  reader-mode: true
   title: "TD - Développement de packages"
   author: "anonymous"
   date: "22/03/2024"
