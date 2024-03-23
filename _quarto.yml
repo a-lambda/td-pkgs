@@ -32,6 +32,8 @@ book:
       text: Documentation avancée
     - href: 11-tidyeval.qmd
       text: Tidyeval
+    - href: 12-purrr.qmd
+      text: "{purrr}"
     - summary.qmd
     - references.qmd
 

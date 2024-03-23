@@ -1,0 +1,106 @@
+---
+title: "`{purrr}`"
+---
+
+::: {.callout-important collapse="false"}
+
+Les développements suivants doivent être réalisés dans une branche de développement
+
+:::
+
+## Intégrer les données au package
+
+- Intégrez les 4 fichiers suivants dans `inst/` (ils sont présents dans votre dossier `data` de bakacode) :
+
+  - "nyc_squirrels_17.xlsx"
+  - "nyc_squirrels_18.xlsx"
+  - "nyc_squirrels_19.xlsx"
+  - "nyc_squirrels_20.xlsx"
+  
+Ces fichiers contiennent les données enregistrées sur 4 jours : 
+  
+  - 17 octobre 2018, 
+  - 18 octobre 2018, 
+  - 19 octobre 2018, et 
+  - 20 octobre 2018.
+  
+## Importer les données du 17 octobre 2018
+
+- Tentez d’importer avec `read_excel()` les données du 17 octobre 2018
+
+*Réalisez cette exploration dans le chunk `development` en haut de votre fichier flat `flat_study_squirrels`*
+
+::: {.callout-note collapse="false"}
+
+Pensez que vous pouvez simuler l’installation des données avec `pkgload::load_all()`
+
+:::
+
+## Importer les données du 18 octobre 2018
+
+- Tentez d’importer avec `read_excel()` les données du 18 octobre 2018
+
+*Réalisez cette exploration dans le chunk `development` en haut de votre fichier flat `flat_study_squirrels`*
+
+*Que constatez-vous ?*
+
+## Jouer avec possibly()
+
+- Construisez avec `possibly()` une fonction nommée `possi_excel()` basée sur `read_excel()` qui renverra `NULL` si l’import n’a pas fonctionné
+
+Vous n’avez pas à l’intégrer à votre package pour le moment. Réalisez cette exploration dans le chunk `development` en haut de votre fichier flat `flat_study_squirrels`
+
+- Testez la sur les données du 17 octobre 2018
+
+```{r}
+#| label: possi_excel_17oct
+#| eval: false
+
+data_nyc_squirrels_17oct <- possi_excel(path = system.file("nyc_squirrels_17.xlsx", package = "squirrels"))
+data_nyc_squirrels_17oct
+
+```
+
+- Et sur celles du 18 octobre 2018
+
+```{r}
+#| label: possi_excel_18oct
+#| eval: false
+
+data_nyc_squirrels_18oct <- possi_excel(path = system.file("nyc_squirrels_18.xlsx", package = "squirrels"))
+data_nyc_squirrels_18oct
+```
+
+## Importer avec `possi_excel()` les données de tous les jours disponibles
+
+- Utilisez la fonction `list.files()` pour lister vos données :
+
+  - Précisez le paramètre `pattern = "nyc_squirrels_[0-9][0-9].xlsx"` (l’expression régulière `[0-9]` permet de faire la correspondance avec n’importe quel chiffre entre 0 et 9)
+
+  - Ajustez le paramètre `full.names` pour récupérer les chemins, et non les noms de fichiers uniquement
+  
+*Réalisez cette exploration dans le chunk `development` en haut de votre fichier flat `flat_study_squirrels`*
+
+## Construire la fonction `read_data_day_squirrels()`
+
+- Dans votre fichier flat `flat_study_squirrels.Rmd`, créez une fonction `read_data_day_squirrels()` capable d’importer tous les fichiers de type "nyc_squirrels_[0-9][0-9].xlsx" d’un dossier
+
+  - Elle doit prendre en entrée le chemin du dossier
+  
+  - Elle doit retourner une liste de données **nommée** (chaque élément de la liste doit être nommé avec le jour correspondant (`17`, `18`, …)
+  
+  - Elle doit s’arrêter si le chemin donné en paramètre n’existe pas, et s’arrêter si le dossier ne contient pas the données sur les écureuils
+  
+- Construisez votre exemple reproductibe sur les données du package (c.-à-d. les 4 fichiers)
+
+- Ajoutez dans votre exemple reproductible les éléments suivants :
+
+  - Affichage du nombre de lignes pour chaque table
+  
+  - Affichage des imports qui ont fonctionné uniquement
+  
+::: {.callout-note collapse="false"}
+
+Votre package doit retourner 0 errors 0 warnings 0 notes
+
+:::
