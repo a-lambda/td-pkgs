@@ -1,4 +1,4 @@
-# Introduction
+# Introduction {.unnumbered}
 
 *Nous allons reprendre votre package `{squirrels}` qui sert de fil rouge tout au long de la formation.*
 
