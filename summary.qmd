@@ -1,4 +1,4 @@
 # Résumé {.unnumbered}
 
-Ce TD permet de mettre en pratique les principaux mécanismes à connaître et à mettre en oeuvre pour pouvoir créer et mettre à disposition son premier package R.
+Ce TD permet de mettre en pratique les principaux mécanismes à connaître et à mettre en oeuvre pour pouvoir créer et partager son premier package R.
 
