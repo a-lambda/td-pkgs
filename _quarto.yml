@@ -42,7 +42,7 @@ bibliography: references.bib
 format:
   html:
     lang: "fr"
-    cover-image: images/thinkr-logo.png
+    cover-image: images/Rlogo.png
     code-link: true
     code-overflow: wrap
   pdf:
