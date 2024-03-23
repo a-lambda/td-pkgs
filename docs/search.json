@@ -32,51 +32,51 @@
   {
     "objectID": "01-unit_tests.html",
     "href": "01-unit_tests.html",
-    "title": "\n2  Tests unitaires\n",
+    "title": "\n1  Tests unitaires\n",
     "section": "",
-    "text": "2.1 Tester la fonction get_message_fur_color()\nPour le moment, vous vous êtes seulement assuré.e que la fonction renvoyait bien \"We will focus on Cinnamon squirrels\" lorsqu’on utilisait get_message_fur_color(primary_fur_color = \"Cinnamon\"). Mais vous pouvez ajouter des vérifications supplémentaires.\ndevtools::test()",
+    "text": "1.1 Tester la fonction get_message_fur_color()\nPour le moment, vous vous êtes seulement assuré.e que la fonction renvoyait bien \"We will focus on Cinnamon squirrels\" lorsqu’on utilisait get_message_fur_color(primary_fur_color = \"Cinnamon\"). Mais vous pouvez ajouter des vérifications supplémentaires.\ndevtools::test()",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tests unitaires</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Tests unitaires</span>"
     ]
   },
   {
     "objectID": "01-unit_tests.html#tester-la-fonction-get_message_fur_color",
     "href": "01-unit_tests.html#tester-la-fonction-get_message_fur_color",
-    "title": "\n2  Tests unitaires\n",
+    "title": "\n1  Tests unitaires\n",
     "section": "",
     "text": "Ajoutez des vérifications à votre fonction get_message_fur_color()\n\n\n\n\nRegonflez votre package avec ces nouveaux tests unitaires\nObservez la sortie de la commande suivante :",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tests unitaires</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Tests unitaires</span>"
     ]
   },
   {
     "objectID": "01-unit_tests.html#ajouter-et-tester-la-fonction-check_primary_color_is_ok",
     "href": "01-unit_tests.html#ajouter-et-tester-la-fonction-check_primary_color_is_ok",
-    "title": "\n2  Tests unitaires\n",
-    "section": "\n2.2 Ajouter et tester la fonction check_primary_color_is_ok()\n",
-    "text": "2.2 Ajouter et tester la fonction check_primary_color_is_ok()\n\n\nAjoutez un nouveau fichier flat dédié à la vérification des données\n\n\nfusen::add_flat_template(template  = \"additional\",\n                         flat_name = \"check_data\")\n\n\nDéfinissez un nouveau nom pour la future vignette (dans le chunk d’inflate)\n\n\nfusen::inflate(flat_file     = \"dev/flat_check_data.Rmd\", \n               vignette_name = \"Check data\")\n\n\nIntégrez-y la fonction check_primary_color_is_ok()\n\n\n\n#' Check the values of primary fur color\n#'\n#' @param string Character. A vector with the primary fur color.\n#'\n#' @return Boolean. TRUE if all colors are correct.\n#' @export\n#'\n#' @examples\ncheck_primary_color_is_ok &lt;- function(string) {\n  all_colors_OK &lt;- all(\n    string %in% c(\"Gray\", \"Cinnamon\", \"Black\", NA)\n  )\n  return(all_colors_OK)\n}\n\n\nModifiez cette fonction check_primary_color_is_ok() de telle manière à ce qu’elle renvoie une erreur si le vecteur n’est pas OK (le message d’erreur doit être explicite)\nN’oubliez pas les exemples et les tests",
+    "title": "\n1  Tests unitaires\n",
+    "section": "\n1.2 Ajouter et tester la fonction check_primary_color_is_ok()\n",
+    "text": "1.2 Ajouter et tester la fonction check_primary_color_is_ok()\n\n\nAjoutez un nouveau fichier flat dédié à la vérification des données\n\n\nfusen::add_flat_template(template  = \"additional\",\n                         flat_name = \"check_data\")\n\n\nDéfinissez un nouveau nom pour la future vignette (dans le chunk d’inflate)\n\n\nfusen::inflate(flat_file     = \"dev/flat_check_data.Rmd\", \n               vignette_name = \"Check data\")\n\n\nIntégrez-y la fonction check_primary_color_is_ok()\n\n\n\n#' Check the values of primary fur color\n#'\n#' @param string Character. A vector with the primary fur color.\n#'\n#' @return Boolean. TRUE if all colors are correct.\n#' @export\n#'\n#' @examples\ncheck_primary_color_is_ok &lt;- function(string) {\n  all_colors_OK &lt;- all(\n    string %in% c(\"Gray\", \"Cinnamon\", \"Black\", NA)\n  )\n  return(all_colors_OK)\n}\n\n\nModifiez cette fonction check_primary_color_is_ok() de telle manière à ce qu’elle renvoie une erreur si le vecteur n’est pas OK (le message d’erreur doit être explicite)\nN’oubliez pas les exemples et les tests",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tests unitaires</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Tests unitaires</span>"
     ]
   },
   {
     "objectID": "01-unit_tests.html#vérifier-le-package",
     "href": "01-unit_tests.html#vérifier-le-package",
-    "title": "\n2  Tests unitaires\n",
-    "section": "\n2.3 Vérifier le package",
-    "text": "2.3 Vérifier le package\n\nVotre package doit retourner 0 errors 0 warnings 0 notes\nVérifiez que votre package peut s’installer sans encombres\n\n\ndevtools::build(vignettes = TRUE) # construit le package au format tar.gz\nremotes::install_local(path = \"~/squirrels_0.0.0.9000.tar.gz\") # installe le package depuis le format tar.gz\n\n\nEst-ce que les fonctions get_message_fur_color() et check_primary_color_is_ok() sont accessibles ?",
+    "title": "\n1  Tests unitaires\n",
+    "section": "\n1.3 Vérifier le package",
+    "text": "1.3 Vérifier le package\n\nVotre package doit retourner 0 errors 0 warnings 0 notes\nVérifiez que votre package peut s’installer sans encombres\n\n\ndevtools::build(vignettes = TRUE) # construit le package au format tar.gz\nremotes::install_local(path = \"~/squirrels_0.0.0.9000.tar.gz\") # installe le package depuis le format tar.gz\n\n\nEst-ce que les fonctions get_message_fur_color() et check_primary_color_is_ok() sont accessibles ?",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tests unitaires</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Tests unitaires</span>"
     ]
   },
   {
     "objectID": "02-package_doc.html#footnotes",
     "href": "02-package_doc.html#footnotes",
-    "title": "3  Documentation du package",
+    "title": "2  Documentation du package",
     "section": "",
     "text": "https://github.com/ThinkR-open/fusen/blob/main/README.Rmd↩︎",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Documentation du package</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Documentation du package</span>"
     ]
   },
   {
@@ -302,31 +302,31 @@
   {
     "objectID": "10-advanced_doc.html",
     "href": "10-advanced_doc.html",
-    "title": "\n11  Documentation avancée\n",
+    "title": "\n10  Documentation avancée\n",
     "section": "",
-    "text": "11.1 Ajouter une fonction launch_help()\ndevtools::build(vignettes = TRUE) # construit le package au format tar.gz\nremotes::install_local(path = \"~/squirrels_0.0.0.9000.tar.gz\") # installe le package depuis le format tar.gz\nsquirrels::launch_help()",
+    "text": "10.1 Ajouter une fonction launch_help()\ndevtools::build(vignettes = TRUE) # construit le package au format tar.gz\nremotes::install_local(path = \"~/squirrels_0.0.0.9000.tar.gz\") # installe le package depuis le format tar.gz\nsquirrels::launch_help()",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Documentation avancée</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Documentation avancée</span>"
     ]
   },
   {
     "objectID": "10-advanced_doc.html#ajouter-une-fonction-launch_help",
     "href": "10-advanced_doc.html#ajouter-une-fonction-launch_help",
-    "title": "\n11  Documentation avancée\n",
+    "title": "\n10  Documentation avancée\n",
     "section": "",
     "text": "Ajoutez un nouveau fichier flat dans votre package, nommé flat_utils.Rmd et créez dedans une fonction launch_help() pour que l’utilisateur puisse afficher le pkgdown. Aidez vous de la slide du cours pour écrire cette fonction.\nReconstruisez le pkgdown de votre package - il a bien évolué depuis la dernière fois\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nVotre package doit retourner 0 errors 0 warnings 0 notes\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nNe pas tenir compte des notes sur les global functions or variables au check\n\n\n\n\nRéinstallez le package et vérifiez que le pkgdown s’ouvre bien",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Documentation avancée</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Documentation avancée</span>"
     ]
   },
   {
     "objectID": "10-advanced_doc.html#versionner-les-développements",
     "href": "10-advanced_doc.html#versionner-les-développements",
-    "title": "\n11  Documentation avancée\n",
-    "section": "\n11.2 Versionner les développements",
-    "text": "11.2 Versionner les développements\n\nPushez vos modifications sur le remote",
+    "title": "\n10  Documentation avancée\n",
+    "section": "\n10.2 Versionner les développements",
+    "text": "10.2 Versionner les développements\n\nPushez vos modifications sur le remote",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Documentation avancée</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Documentation avancée</span>"
     ]
   },
   {
