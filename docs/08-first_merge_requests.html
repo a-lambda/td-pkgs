@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>TD - Développement de packages - 9&nbsp; Premières Merge Requests</title>
+<title>TD - Développement de packages - 8&nbsp; Premières Merge Requests</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-first_merge_requests.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-first_merge_requests.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -135,91 +135,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-unit_tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tests unitaires</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tests unitaires</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-package_doc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Documentation du package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Documentation du package</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-restart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Et si on recommençait ?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Et si on recommençait ?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Données</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Données</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-check.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Check</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Check</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-versioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Versionnement</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Versionnement</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-check_param.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-first_merge_requests.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-dots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dots</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-advanced_doc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Documentation avancée</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Documentation avancée</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11-tidyeval.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tidyeval</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tidyeval</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12-purrr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">{purrr}</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">{purrr}</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">En résumé</span></a>
   </div>
 </li>
     </ul>
@@ -231,19 +225,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#une-merge-request-seul.e" id="toc-une-merge-request-seul.e" class="nav-link active" data-scroll-target="#une-merge-request-seul.e"><span class="header-section-number">9.1</span> Une Merge Request seul.e</a>
+<a href="#une-merge-request-seul.e" id="toc-une-merge-request-seul.e" class="nav-link active" data-scroll-target="#une-merge-request-seul.e"><span class="header-section-number">8.1</span> Une Merge Request seul.e</a>
   <ul class="collapse">
-<li><a href="#ouvrir-une-issue" id="toc-ouvrir-une-issue" class="nav-link" data-scroll-target="#ouvrir-une-issue"><span class="header-section-number">9.1.1</span> Ouvrir une issue</a></li>
-  <li><a href="#prendre-en-charge-lissue" id="toc-prendre-en-charge-lissue" class="nav-link" data-scroll-target="#prendre-en-charge-lissue"><span class="header-section-number">9.1.2</span> Prendre en charge l’issue</a></li>
-  <li><a href="#ouvrir-une-mr-et-la-prendre-en-charge" id="toc-ouvrir-une-mr-et-la-prendre-en-charge" class="nav-link" data-scroll-target="#ouvrir-une-mr-et-la-prendre-en-charge"><span class="header-section-number">9.1.3</span> Ouvrir une MR et la prendre en charge</a></li>
+<li><a href="#ouvrir-une-issue" id="toc-ouvrir-une-issue" class="nav-link" data-scroll-target="#ouvrir-une-issue"><span class="header-section-number">8.1.1</span> Ouvrir une issue</a></li>
+  <li><a href="#prendre-en-charge-lissue" id="toc-prendre-en-charge-lissue" class="nav-link" data-scroll-target="#prendre-en-charge-lissue"><span class="header-section-number">8.1.2</span> Prendre en charge l’issue</a></li>
+  <li><a href="#ouvrir-une-mr-et-la-prendre-en-charge" id="toc-ouvrir-une-mr-et-la-prendre-en-charge" class="nav-link" data-scroll-target="#ouvrir-une-mr-et-la-prendre-en-charge"><span class="header-section-number">8.1.3</span> Ouvrir une MR et la prendre en charge</a></li>
   </ul>
 </li>
   <li>
-<a href="#une-merge-request-collaborative" id="toc-une-merge-request-collaborative" class="nav-link" data-scroll-target="#une-merge-request-collaborative"><span class="header-section-number">9.2</span> Une Merge Request collaborative</a>
+<a href="#une-merge-request-collaborative" id="toc-une-merge-request-collaborative" class="nav-link" data-scroll-target="#une-merge-request-collaborative"><span class="header-section-number">8.2</span> Une Merge Request collaborative</a>
   <ul class="collapse">
-<li><a href="#prendre-en-charge-lissue-1" id="toc-prendre-en-charge-lissue-1" class="nav-link" data-scroll-target="#prendre-en-charge-lissue-1"><span class="header-section-number">9.2.1</span> Prendre en charge l’issue</a></li>
-  <li><a href="#ouvrir-une-mr-et-lassigner-%C3%A0-son.sa-camarade" id="toc-ouvrir-une-mr-et-lassigner-à-son.sa-camarade" class="nav-link" data-scroll-target="#ouvrir-une-mr-et-lassigner-%C3%A0-son.sa-camarade"><span class="header-section-number">9.2.2</span> Ouvrir une MR et l’assigner à son.sa camarade</a></li>
-  <li><a href="#reviewer-la-mr-qui-vous-attend" id="toc-reviewer-la-mr-qui-vous-attend" class="nav-link" data-scroll-target="#reviewer-la-mr-qui-vous-attend"><span class="header-section-number">9.2.3</span> Reviewer la MR qui vous attend</a></li>
+<li><a href="#prendre-en-charge-lissue-1" id="toc-prendre-en-charge-lissue-1" class="nav-link" data-scroll-target="#prendre-en-charge-lissue-1"><span class="header-section-number">8.2.1</span> Prendre en charge l’issue</a></li>
+  <li><a href="#ouvrir-une-mr-et-lassigner-%C3%A0-son.sa-camarade" id="toc-ouvrir-une-mr-et-lassigner-à-son.sa-camarade" class="nav-link" data-scroll-target="#ouvrir-une-mr-et-lassigner-%C3%A0-son.sa-camarade"><span class="header-section-number">8.2.2</span> Ouvrir une MR et l’assigner à son.sa camarade</a></li>
+  <li><a href="#reviewer-la-mr-qui-vous-attend" id="toc-reviewer-la-mr-qui-vous-attend" class="nav-link" data-scroll-target="#reviewer-la-mr-qui-vous-attend"><span class="header-section-number">8.2.3</span> Reviewer la MR qui vous attend</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -251,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span>
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span>
 </h1>
 </div>
 
@@ -266,10 +260,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="une-merge-request-seul.e" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="une-merge-request-seul.e">
-<span class="header-section-number">9.1</span> Une Merge Request seul.e</h2>
-<section id="ouvrir-une-issue" class="level3" data-number="9.1.1"><h3 data-number="9.1.1" class="anchored" data-anchor-id="ouvrir-une-issue">
-<span class="header-section-number">9.1.1</span> Ouvrir une issue</h3>
+</header><section id="une-merge-request-seul.e" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="une-merge-request-seul.e">
+<span class="header-section-number">8.1</span> Une Merge Request seul.e</h2>
+<section id="ouvrir-une-issue" class="level3" data-number="8.1.1"><h3 data-number="8.1.1" class="anchored" data-anchor-id="ouvrir-une-issue">
+<span class="header-section-number">8.1.1</span> Ouvrir une issue</h3>
 <ul>
 <li><p>Rendez-vous sur votre projet GitLab</p></li>
 <li>
@@ -279,20 +273,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Assignez cette issue à vous-même</p></li>
 </ul>
 </li>
-</ul></section><section id="prendre-en-charge-lissue" class="level3" data-number="9.1.2"><h3 data-number="9.1.2" class="anchored" data-anchor-id="prendre-en-charge-lissue">
-<span class="header-section-number">9.1.2</span> Prendre en charge l’issue</h3>
+</ul></section><section id="prendre-en-charge-lissue" class="level3" data-number="8.1.2"><h3 data-number="8.1.2" class="anchored" data-anchor-id="prendre-en-charge-lissue">
+<span class="header-section-number">8.1.2</span> Prendre en charge l’issue</h3>
 <ul>
 <li><p>Créez une nouvelle branche de développement depuis <em>main</em> (vous pouvez le faire directement depuis GitLab, dans l’issue concernée)</p></li>
 <li><p>Faites un pull</p></li>
 <li><p>Dans la branche de développement, prenez en charge l’issue : effectuez les modifications demandées sur le fichier README</p></li>
 <li><p>Faites un commit et un push</p></li>
-</ul></section><section id="ouvrir-une-mr-et-la-prendre-en-charge" class="level3" data-number="9.1.3"><h3 data-number="9.1.3" class="anchored" data-anchor-id="ouvrir-une-mr-et-la-prendre-en-charge">
-<span class="header-section-number">9.1.3</span> Ouvrir une MR et la prendre en charge</h3>
+</ul></section><section id="ouvrir-une-mr-et-la-prendre-en-charge" class="level3" data-number="8.1.3"><h3 data-number="8.1.3" class="anchored" data-anchor-id="ouvrir-une-mr-et-la-prendre-en-charge">
+<span class="header-section-number">8.1.3</span> Ouvrir une MR et la prendre en charge</h3>
 <ul>
 <li><p>Ouvrez une Merge Request pour proposer la fusion de vos développements dans la branche <code>main</code> et assignez-la à vous-même</p></li>
 <li><p>Mergez vous-même votre MR</p></li>
-</ul></section></section><section id="une-merge-request-collaborative" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="une-merge-request-collaborative">
-<span class="header-section-number">9.2</span> Une Merge Request collaborative</h2>
+</ul></section></section><section id="une-merge-request-collaborative" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="une-merge-request-collaborative">
+<span class="header-section-number">8.2</span> Une Merge Request collaborative</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -379,8 +373,8 @@ Cette issue doit contenir la description suivante
 </li>
 </ul>
 <p>Donnez ces infos aux apprenant.e.s, pour qu’ielles sachent exactement à qui assigner la MR le moment venu.</p>
-<section id="prendre-en-charge-lissue-1" class="level3" data-number="9.2.1"><h3 data-number="9.2.1" class="anchored" data-anchor-id="prendre-en-charge-lissue-1">
-<span class="header-section-number">9.2.1</span> Prendre en charge l’issue</h3>
+<section id="prendre-en-charge-lissue-1" class="level3" data-number="8.2.1"><h3 data-number="8.2.1" class="anchored" data-anchor-id="prendre-en-charge-lissue-1">
+<span class="header-section-number">8.2.1</span> Prendre en charge l’issue</h3>
 <ul>
 <li><p>Rendez-vous sur le projet GitLab de votre formateurice</p></li>
 <li><p>Clonez le repo dans bakacode, <strong>à un endroit différent de celui où vous avez stocké votre propre repo</strong></p></li>
@@ -388,8 +382,8 @@ Cette issue doit contenir la description suivante
 <li><p>Faites un pull</p></li>
 <li><p>Prenez en charge l’issue (création de la fonction, testée et documentée)</p></li>
 <li><p>Faites un commit et un push</p></li>
-</ul></section><section id="ouvrir-une-mr-et-lassigner-à-son.sa-camarade" class="level3" data-number="9.2.2"><h3 data-number="9.2.2" class="anchored" data-anchor-id="ouvrir-une-mr-et-lassigner-à-son.sa-camarade">
-<span class="header-section-number">9.2.2</span> Ouvrir une MR et l’assigner à son.sa camarade</h3>
+</ul></section><section id="ouvrir-une-mr-et-lassigner-à-son.sa-camarade" class="level3" data-number="8.2.2"><h3 data-number="8.2.2" class="anchored" data-anchor-id="ouvrir-une-mr-et-lassigner-à-son.sa-camarade">
+<span class="header-section-number">8.2.2</span> Ouvrir une MR et l’assigner à son.sa camarade</h3>
 <ul>
 <li>Ouvrez une Merge Request pour proposer la fusion de vos développements dans la branche <em>main</em> et assignez-la à la personne qui vous a été indiquée par votre formateurice</li>
 </ul>
@@ -409,8 +403,8 @@ Note
 </div>
 </div>
 </div>
-</section><section id="reviewer-la-mr-qui-vous-attend" class="level3" data-number="9.2.3"><h3 data-number="9.2.3" class="anchored" data-anchor-id="reviewer-la-mr-qui-vous-attend">
-<span class="header-section-number">9.2.3</span> Reviewer la MR qui vous attend</h3>
+</section><section id="reviewer-la-mr-qui-vous-attend" class="level3" data-number="8.2.3"><h3 data-number="8.2.3" class="anchored" data-anchor-id="reviewer-la-mr-qui-vous-attend">
+<span class="header-section-number">8.2.3</span> Reviewer la MR qui vous attend</h3>
 <ul>
 <li><p>Récupérez la branche de votre camarade</p></li>
 <li><p>Vérifiez que tout est OK. A défaut, vous pouvez amender son travail en poussant de nouveaux commits dans sa branche. Ils apparaîtront aussi dans la MR.</p></li>
@@ -806,12 +800,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./07-check_param.html" class="pagination-link" aria-label="Vérification des paramètres">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./09-dots.html" class="pagination-link" aria-label="Dots">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dots</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dots</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

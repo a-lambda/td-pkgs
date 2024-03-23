@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>TD - Développement de packages - 8&nbsp; Vérification des paramètres</title>
+<title>TD - Développement de packages - 7&nbsp; Vérification des paramètres</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-check_param.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-check_param.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -135,91 +135,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-unit_tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tests unitaires</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tests unitaires</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-package_doc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Documentation du package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Documentation du package</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-restart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Et si on recommençait ?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Et si on recommençait ?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Données</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Données</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-check.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Check</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Check</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-versioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Versionnement</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Versionnement</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-check_param.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-first_merge_requests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-dots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dots</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-advanced_doc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Documentation avancée</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Documentation avancée</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11-tidyeval.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tidyeval</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tidyeval</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12-purrr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">{purrr}</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">{purrr}</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">En résumé</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">En résumé</span></a>
   </div>
 </li>
     </ul>
@@ -230,15 +224,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table des matières</h2>
    
   <ul>
-<li><a href="#ajouter-la-fonction-study_activity" id="toc-ajouter-la-fonction-study_activity" class="nav-link active" data-scroll-target="#ajouter-la-fonction-study_activity"><span class="header-section-number">8.1</span> Ajouter la fonction <code>study_activity()</code></a></li>
-  <li><a href="#cr%C3%A9er-la-fonction-save_as_csv" id="toc-créer-la-fonction-save_as_csv" class="nav-link" data-scroll-target="#cr%C3%A9er-la-fonction-save_as_csv"><span class="header-section-number">8.2</span> Créer la fonction <code>save_as_csv()</code></a></li>
-  <li><a href="#versionner-les-d%C3%A9veloppements" id="toc-versionner-les-développements" class="nav-link" data-scroll-target="#versionner-les-d%C3%A9veloppements"><span class="header-section-number">8.3</span> Versionner les développements</a></li>
+<li><a href="#ajouter-la-fonction-study_activity" id="toc-ajouter-la-fonction-study_activity" class="nav-link active" data-scroll-target="#ajouter-la-fonction-study_activity"><span class="header-section-number">7.1</span> Ajouter la fonction <code>study_activity()</code></a></li>
+  <li><a href="#cr%C3%A9er-la-fonction-save_as_csv" id="toc-créer-la-fonction-save_as_csv" class="nav-link" data-scroll-target="#cr%C3%A9er-la-fonction-save_as_csv"><span class="header-section-number">7.2</span> Créer la fonction <code>save_as_csv()</code></a></li>
+  <li><a href="#versionner-les-d%C3%A9veloppements" id="toc-versionner-les-développements" class="nav-link" data-scroll-target="#versionner-les-d%C3%A9veloppements"><span class="header-section-number">7.3</span> Versionner les développements</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span>
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span>
 </h1>
 </div>
 
@@ -253,8 +247,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="ajouter-la-fonction-study_activity" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="ajouter-la-fonction-study_activity">
-<span class="header-section-number">8.1</span> Ajouter la fonction <code>study_activity()</code>
+</header><section id="ajouter-la-fonction-study_activity" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="ajouter-la-fonction-study_activity">
+<span class="header-section-number">7.1</span> Ajouter la fonction <code>study_activity()</code>
 </h2>
 <ul>
 <li>Dans votre fichier flat <code>flat_study_squirrels.Rmd</code>, intégrez la fonction <code>study_activity()</code> :</li>
@@ -330,8 +324,8 @@ Note
 </div>
 </div>
 </div>
-</section><section id="créer-la-fonction-save_as_csv" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="créer-la-fonction-save_as_csv">
-<span class="header-section-number">8.2</span> Créer la fonction <code>save_as_csv()</code>
+</section><section id="créer-la-fonction-save_as_csv" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="créer-la-fonction-save_as_csv">
+<span class="header-section-number">7.2</span> Créer la fonction <code>save_as_csv()</code>
 </h2>
 <ul>
 <li>
@@ -408,8 +402,8 @@ Note
 </div>
 </div>
 </div>
-</section><section id="versionner-les-développements" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="versionner-les-développements">
-<span class="header-section-number">8.3</span> Versionner les développements</h2>
+</section><section id="versionner-les-développements" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="versionner-les-développements">
+<span class="header-section-number">7.3</span> Versionner les développements</h2>
 <ul>
 <li><p>Versionner les développements</p></li>
 <li><p>Pushez vos modifications une fois vos modifications terminées</p></li>
@@ -825,12 +819,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./06-versioning.html" class="pagination-link" aria-label="Versionnement">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Versionnement</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Versionnement</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./08-first_merge_requests.html" class="pagination-link" aria-label="Premières Merge Requests">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
