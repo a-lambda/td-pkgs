@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "TD - Développement de packages",
     "section": "",
-    "text": "Préface\nCeci est un livre Quarto.\nPour en apprendre plus sur le sujet vous pouvez visiter https://quarto.org/docs/books.\nA suivre, quelques exercices liés à la création de packages et à la gestion de versions collaborative (git1, github2, ou bien encore gitlab3 vous dévoileront quelques-uns de leurs secrets :)",
+    "text": "Préface\nCeci est un livre Quarto.\nPour en apprendre plus sur le sujet vous pouvez visiter https://quarto.org/docs/books.\nA suivre, quelques exercices liés à la création de packages1 et à la gestion de versions collaborative (git2, github3, ou bien encore gitlab4 vous dévoileront quelques-uns de leurs secrets :)",
     "crumbs": [
       "Préface"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#footnotes",
     "title": "TD - Développement de packages",
     "section": "",
-    "text": "https://git-scm.com/↩︎\nhttps://github.com/↩︎\nhttps://gitlab.com/↩︎",
+    "text": "https://r-pkgs.org/↩︎\nhttps://git-scm.com/↩︎\nhttps://github.com/↩︎\nhttps://gitlab.com/↩︎",
     "crumbs": [
       "Préface"
     ]
