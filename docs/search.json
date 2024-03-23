@@ -232,11 +232,11 @@
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "\n14  Summary\n",
+    "title": "14  Résumé",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "text": "Ce TD permet de mettre en pratique les principaux mécanismes à connaître et à mettre en oeuvre pour pouvoir créer et mettre à disposition son premier package R.",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Summary</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>En résumé</span>"
     ]
   },
   {
