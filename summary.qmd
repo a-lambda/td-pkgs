@@ -1,7 +1,4 @@
-# Summary
+# Résumé
 
-In summary, this book has no content whatsoever.
+Ce TD permet de mettre en pratique les principaux mécanismes à connaître et à mettre en oeuvre pour pouvoir créer et mettre à disposition son premier package R.
 
-```{r}
-1 + 1
-```

@@ -34,7 +34,8 @@ book:
       text: Tidyeval
     - href: 12-purrr.qmd
       text: "{purrr}"
-    - summary.qmd
+    - href: summary.qmd
+      text: En résumé
     - references.qmd
 
 bibliography: references.bib
