@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>TD - Développement de packages - 13&nbsp; purrr</title>
+<title>TD - Développement de packages - 12&nbsp; purrr</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12-purrr.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">{purrr}</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12-purrr.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">{purrr}</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -135,85 +135,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-unit_tests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tests unitaires</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tests unitaires</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-package_doc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Documentation du package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Documentation du package</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-restart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Et si on recommençait ?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Et si on recommençait ?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Données</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Données</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-check.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Check</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Check</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-versioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Versionnement</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Versionnement</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-check_param.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Vérification des paramètres</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-first_merge_requests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Premières Merge Requests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-dots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dots</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-advanced_doc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Documentation avancée</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Documentation avancée</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11-tidyeval.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tidyeval</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tidyeval</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12-purrr.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">{purrr}</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">{purrr}</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text">En résumé</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -230,18 +230,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table des matières</h2>
    
   <ul>
-<li><a href="#int%C3%A9grer-les-donn%C3%A9es-au-package" id="toc-intégrer-les-données-au-package" class="nav-link active" data-scroll-target="#int%C3%A9grer-les-donn%C3%A9es-au-package"><span class="header-section-number">13.1</span> Intégrer les données au package</a></li>
-  <li><a href="#importer-les-donn%C3%A9es-du-17-octobre-2018" id="toc-importer-les-données-du-17-octobre-2018" class="nav-link" data-scroll-target="#importer-les-donn%C3%A9es-du-17-octobre-2018"><span class="header-section-number">13.2</span> Importer les données du 17 octobre 2018</a></li>
-  <li><a href="#importer-les-donn%C3%A9es-du-18-octobre-2018" id="toc-importer-les-données-du-18-octobre-2018" class="nav-link" data-scroll-target="#importer-les-donn%C3%A9es-du-18-octobre-2018"><span class="header-section-number">13.3</span> Importer les données du 18 octobre 2018</a></li>
-  <li><a href="#jouer-avec-possibly" id="toc-jouer-avec-possibly" class="nav-link" data-scroll-target="#jouer-avec-possibly"><span class="header-section-number">13.4</span> Jouer avec possibly()</a></li>
-  <li><a href="#importer-avec-possi_excel-les-donn%C3%A9es-de-tous-les-jours-disponibles" id="toc-importer-avec-possi_excel-les-données-de-tous-les-jours-disponibles" class="nav-link" data-scroll-target="#importer-avec-possi_excel-les-donn%C3%A9es-de-tous-les-jours-disponibles"><span class="header-section-number">13.5</span> Importer avec <code>possi_excel()</code> les données de tous les jours disponibles</a></li>
-  <li><a href="#construire-la-fonction-read_data_day_squirrels" id="toc-construire-la-fonction-read_data_day_squirrels" class="nav-link" data-scroll-target="#construire-la-fonction-read_data_day_squirrels"><span class="header-section-number">13.6</span> Construire la fonction <code>read_data_day_squirrels()</code></a></li>
+<li><a href="#int%C3%A9grer-les-donn%C3%A9es-au-package" id="toc-intégrer-les-données-au-package" class="nav-link active" data-scroll-target="#int%C3%A9grer-les-donn%C3%A9es-au-package"><span class="header-section-number">12.1</span> Intégrer les données au package</a></li>
+  <li><a href="#importer-les-donn%C3%A9es-du-17-octobre-2018" id="toc-importer-les-données-du-17-octobre-2018" class="nav-link" data-scroll-target="#importer-les-donn%C3%A9es-du-17-octobre-2018"><span class="header-section-number">12.2</span> Importer les données du 17 octobre 2018</a></li>
+  <li><a href="#importer-les-donn%C3%A9es-du-18-octobre-2018" id="toc-importer-les-données-du-18-octobre-2018" class="nav-link" data-scroll-target="#importer-les-donn%C3%A9es-du-18-octobre-2018"><span class="header-section-number">12.3</span> Importer les données du 18 octobre 2018</a></li>
+  <li><a href="#jouer-avec-possibly" id="toc-jouer-avec-possibly" class="nav-link" data-scroll-target="#jouer-avec-possibly"><span class="header-section-number">12.4</span> Jouer avec possibly()</a></li>
+  <li><a href="#importer-avec-possi_excel-les-donn%C3%A9es-de-tous-les-jours-disponibles" id="toc-importer-avec-possi_excel-les-données-de-tous-les-jours-disponibles" class="nav-link" data-scroll-target="#importer-avec-possi_excel-les-donn%C3%A9es-de-tous-les-jours-disponibles"><span class="header-section-number">12.5</span> Importer avec <code>possi_excel()</code> les données de tous les jours disponibles</a></li>
+  <li><a href="#construire-la-fonction-read_data_day_squirrels" id="toc-construire-la-fonction-read_data_day_squirrels" class="nav-link" data-scroll-target="#construire-la-fonction-read_data_day_squirrels"><span class="header-section-number">12.6</span> Construire la fonction <code>read_data_day_squirrels()</code></a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>{purrr}</code></span>
+<span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>{purrr}</code></span>
 </h1>
 </div>
 
@@ -272,8 +272,8 @@ Important
 </div>
 </div>
 </div>
-<section id="intégrer-les-données-au-package" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="intégrer-les-données-au-package">
-<span class="header-section-number">13.1</span> Intégrer les données au package</h2>
+<section id="intégrer-les-données-au-package" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="intégrer-les-données-au-package">
+<span class="header-section-number">12.1</span> Intégrer les données au package</h2>
 <ul>
 <li>
 <p>Intégrez les 4 fichiers suivants dans <code>inst/</code> (ils sont présents dans votre dossier <code>data</code> de bakacode) :</p>
@@ -291,8 +291,8 @@ Important
 <li>18 octobre 2018,</li>
 <li>19 octobre 2018, et</li>
 <li>20 octobre 2018.</li>
-</ul></section><section id="importer-les-données-du-17-octobre-2018" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="importer-les-données-du-17-octobre-2018">
-<span class="header-section-number">13.2</span> Importer les données du 17 octobre 2018</h2>
+</ul></section><section id="importer-les-données-du-17-octobre-2018" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="importer-les-données-du-17-octobre-2018">
+<span class="header-section-number">12.2</span> Importer les données du 17 octobre 2018</h2>
 <ul>
 <li>Tentez d’importer avec <code>read_excel()</code> les données du 17 octobre 2018</li>
 </ul>
@@ -313,15 +313,15 @@ Note
 </div>
 </div>
 </div>
-</section><section id="importer-les-données-du-18-octobre-2018" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="importer-les-données-du-18-octobre-2018">
-<span class="header-section-number">13.3</span> Importer les données du 18 octobre 2018</h2>
+</section><section id="importer-les-données-du-18-octobre-2018" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="importer-les-données-du-18-octobre-2018">
+<span class="header-section-number">12.3</span> Importer les données du 18 octobre 2018</h2>
 <ul>
 <li>Tentez d’importer avec <code>read_excel()</code> les données du 18 octobre 2018</li>
 </ul>
 <p><em>Réalisez cette exploration dans le chunk <code>development</code> en haut de votre fichier flat <code>flat_study_squirrels</code></em></p>
 <p><em>Que constatez-vous ?</em></p>
-</section><section id="jouer-avec-possibly" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="jouer-avec-possibly">
-<span class="header-section-number">13.4</span> Jouer avec possibly()</h2>
+</section><section id="jouer-avec-possibly" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="jouer-avec-possibly">
+<span class="header-section-number">12.4</span> Jouer avec possibly()</h2>
 <ul>
 <li>Construisez avec <code>possibly()</code> une fonction nommée <code>possi_excel()</code> basée sur <code>read_excel()</code> qui renverra <code>NULL</code> si l’import n’a pas fonctionné</li>
 </ul>
@@ -340,8 +340,8 @@ Note
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_nyc_squirrels_18oct</span> <span class="op">&lt;-</span> <span class="fu">possi_excel</span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"nyc_squirrels_18.xlsx"</span>, package <span class="op">=</span> <span class="st">"squirrels"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">data_nyc_squirrels_18oct</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="importer-avec-possi_excel-les-données-de-tous-les-jours-disponibles" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="importer-avec-possi_excel-les-données-de-tous-les-jours-disponibles">
-<span class="header-section-number">13.5</span> Importer avec <code>possi_excel()</code> les données de tous les jours disponibles</h2>
+</section><section id="importer-avec-possi_excel-les-données-de-tous-les-jours-disponibles" class="level2" data-number="12.5"><h2 data-number="12.5" class="anchored" data-anchor-id="importer-avec-possi_excel-les-données-de-tous-les-jours-disponibles">
+<span class="header-section-number">12.5</span> Importer avec <code>possi_excel()</code> les données de tous les jours disponibles</h2>
 <ul>
 <li>
 <p>Utilisez la fonction <code><a href="https://rdrr.io/r/base/list.files.html">list.files()</a></code> pour lister vos données :</p>
@@ -352,8 +352,8 @@ Note
 </li>
 </ul>
 <p><em>Réalisez cette exploration dans le chunk <code>development</code> en haut de votre fichier flat <code>flat_study_squirrels</code></em></p>
-</section><section id="construire-la-fonction-read_data_day_squirrels" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="construire-la-fonction-read_data_day_squirrels">
-<span class="header-section-number">13.6</span> Construire la fonction <code>read_data_day_squirrels()</code>
+</section><section id="construire-la-fonction-read_data_day_squirrels" class="level2" data-number="12.6"><h2 data-number="12.6" class="anchored" data-anchor-id="construire-la-fonction-read_data_day_squirrels">
+<span class="header-section-number">12.6</span> Construire la fonction <code>read_data_day_squirrels()</code>
 </h2>
 <ul>
 <li>
@@ -779,12 +779,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./11-tidyeval.html" class="pagination-link" aria-label="Tidyeval">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tidyeval</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tidyeval</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link" aria-label="Summary">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link" aria-label="En résumé">
+        <span class="nav-page-text">En résumé</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
