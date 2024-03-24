@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Développement de packages - 5&nbsp; Check</title>
+<title>Développement de packages - Annexe A — Mémo création de package R avec fusen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,8 +17,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -30,8 +60,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./06-versioning.html" rel="next">
-<link href="./04-data.html" rel="prev">
+<link href="./summary.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,8 +69,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -68,33 +96,24 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">TD</a></li><li class="breadcrumb-item"><a href="./05-check.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Check</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./procedure_package_fusen.html">Appendices</a></li><li class="breadcrumb-item"><a href="./procedure_package_fusen.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Créer un package R avec {fusen}</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Développement de packages</a> 
         <div class="sidebar-tools-main">
@@ -113,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Préface</span></a>
@@ -127,8 +146,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
@@ -160,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-check.html" class="sidebar-item-text sidebar-link active">
+  <a href="./05-check.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Check</span></span></a>
   </div>
 </li>
@@ -213,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -222,29 +241,42 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./procedure_package_fusen.html" class="sidebar-item-text sidebar-link">
+  <a href="./procedure_package_fusen.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Créer un package R avec {fusen}</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+<li>
+<a href="#cr%C3%A9er-un-projet-rstudio-fusen" id="toc-créer-un-projet-rstudio-fusen" class="nav-link active" data-scroll-target="#cr%C3%A9er-un-projet-rstudio-fusen"><span class="header-section-number">A.1</span> Créer un projet Rstudio {fusen}</a>
+  <ul class="collapse">
+<li><a href="#sans-utiliser-git" id="toc-sans-utiliser-git" class="nav-link" data-scroll-target="#sans-utiliser-git"><span class="header-section-number">A.1.1</span> Sans utiliser git</a></li>
+  <li><a href="#avec-git" id="toc-avec-git" class="nav-link" data-scroll-target="#avec-git"><span class="header-section-number">A.1.2</span> Avec git</a></li>
+  </ul>
+</li>
+  <li><a href="#remplir-description" id="toc-remplir-description" class="nav-link" data-scroll-target="#remplir-description"><span class="header-section-number">A.2</span> Remplir DESCRIPTION</a></li>
+  <li><a href="#remplir-flat_.rmd" id="toc-remplir-flat_.rmd" class="nav-link" data-scroll-target="#remplir-flat_.rmd"><span class="header-section-number">A.3</span> Remplir flat_*.Rmd</a></li>
+  <li><a href="#inflate-votre-flat_.rmd" id="toc-inflate-votre-flat_.rmd" class="nav-link" data-scroll-target="#inflate-votre-flat_.rmd"><span class="header-section-number">A.4</span> Inflate votre flat_*.Rmd</a></li>
+  <li><a href="#installer-le-package" id="toc-installer-le-package" class="nav-link" data-scroll-target="#installer-le-package"><span class="header-section-number">A.5</span> Installer le package</a></li>
+  <li><a href="#se-r%C3%A9jouir" id="toc-se-réjouir" class="nav-link" data-scroll-target="#se-r%C3%A9jouir"><span class="header-section-number">A.6</span> Se réjouir</a></li>
+  <li><a href="#exporter-son-package-en-tar.gz-pour-le-partager" id="toc-exporter-son-package-en-tar.gz-pour-le-partager" class="nav-link" data-scroll-target="#exporter-son-package-en-tar.gz-pour-le-partager"><span class="header-section-number">A.7</span> Exporter son package en tar.gz pour le partager</a></li>
+  <li><a href="#installer-le-package-depuis-le-format-tar.gz" id="toc-installer-le-package-depuis-le-format-tar.gz" class="nav-link" data-scroll-target="#installer-le-package-depuis-le-format-tar.gz"><span class="header-section-number">A.8</span> Installer le package depuis le format tar.gz</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">TD</a></li><li class="breadcrumb-item"><a href="./05-check.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Check</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Check</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./procedure_package_fusen.html">Appendices</a></li><li class="breadcrumb-item"><a href="./procedure_package_fusen.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Créer un package R avec {fusen}</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-annexeA" class="quarto-section-identifier">Annexe A — Mémo création de package R avec <code>{fusen}</code></span></h1>
 </div>
 
 
@@ -258,18 +290,126 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
+</header><div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note préliminaire
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="bashbox">
+<p>$ ceci est du code bash, à lancer dans le terminal</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ceci est un code R, à lancer dans R</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<section id="créer-un-projet-rstudio-fusen" class="level2" data-number="A.1"><h2 data-number="A.1" class="anchored" data-anchor-id="créer-un-projet-rstudio-fusen">
+<span class="header-section-number">A.1</span> Créer un projet Rstudio {fusen}</h2>
+<section id="sans-utiliser-git" class="level3" data-number="A.1.1"><h3 data-number="A.1.1" class="anchored" data-anchor-id="sans-utiliser-git">
+<span class="header-section-number">A.1.1</span> Sans utiliser git</h3>
 <ul>
-<li><p>Relancez le check de votre package et assurez-vous qu’il renvoie 0 errors 0 warnings 0 notes</p></li>
-<li><p>Si ce n’est pas le cas, prenez du temps pour corriger les problèmes</p></li>
+<li>New project &gt; New directory &gt; Package using {fusen} &gt; Choisir le template adapté</li>
+</ul></section><section id="avec-git" class="level3" data-number="A.1.2"><h3 data-number="A.1.2" class="anchored" data-anchor-id="avec-git">
+<span class="header-section-number">A.1.2</span> Avec git</h3>
+<ul>
+<li><p>Initier un projet sur GitLab/GitHub</p></li>
+<li><p>Récuperer le chemin de votre projet, de la forme <code>https://gitlab.com/votre_nom/monprojet.git</code>, puis …</p></li>
 </ul>
+<section id="version-1" class="level4" data-number="A.1.2.1"><h4 data-number="A.1.2.1" class="anchored" data-anchor-id="version-1">
+<span class="header-section-number">A.1.2.1</span> Version 1</h4>
+<ul>
+<li>New project &gt; Version control &gt; git</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fusen<span class="sc">::</span><span class="fu">create_fusen</span>(<span class="at">path =</span> <span class="st">"."</span>, <span class="at">template =</span> <span class="sc">&lt;</span>votre choix<span class="sc">&gt;</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Sélectionnez tous les fichiers modifiés de votre projet</p></li>
+<li><p>Réalisez un 1er <code>commit</code> (avec un message explicite, par exemple “Init fusen package”)</p></li>
+<li><p>Réalisez un <code>push</code> pour l’envoyer vers le remote.</p></li>
+</ul>
+<p>Si la flèche montante n’est pas active, alors utilisez la ligne de commande dans le terminal:</p>
+<div class="bashbox">
+<p>$ git push -u origin main</p>
+</div>
+</section><section id="version-2" class="level4" data-number="A.1.2.2"><h4 data-number="A.1.2.2" class="anchored" data-anchor-id="version-2">
+<span class="header-section-number">A.1.2.2</span> Version 2</h4>
+<p>New project &gt; New directory &gt; Package using {fusen} &gt; Choisir le template adapté &gt; Cocher “Create a git repository”</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_git.html">use_git</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_git_remote.html">use_git_remote</a></span><span class="op">(</span><span class="st">"origin"</span>, url <span class="op">=</span> <span class="st">"https://gitlab.com/votre_nom/monprojet.git"</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Dans le terminal</li>
+</ul>
+<div class="bashbox">
+<p>$ git push -u origin main</p>
+</div>
+</section></section></section><section id="remplir-description" class="level2" data-number="A.2"><h2 data-number="A.2" class="anchored" data-anchor-id="remplir-description">
+<span class="header-section-number">A.2</span> Remplir DESCRIPTION</h2>
+<ul>
+<li>Modifier et lancer le chunk <code>description</code> dans <code>dev/0-dev_history.Rmd</code>
+</li>
+</ul></section><section id="remplir-flat_.rmd" class="level2" data-number="A.3"><h2 data-number="A.3" class="anchored" data-anchor-id="remplir-flat_.rmd">
+<span class="header-section-number">A.3</span> Remplir flat_*.Rmd</h2>
+<ul>
+<li><p>Supprimer la section de démonstration du template et créer une section destinée à la fonction avec l’<strong>Addin</strong> RStudio &gt; {fusen} &gt; Add {fusen} chunks</p></li>
+<li><p>Prototyper dans un chunk de dévelopement</p></li>
+<li><p>Mettre en fonction dans un chunk dédié</p></li>
+<li><p>Documenter vos fonctions avec la syntax <a href="https://roxygen2.r-lib.org/">roxygen2</a></p></li>
+<li><p>Gérer les dépendances (<code>@ImportFrom</code>, <code>@export</code>)</p></li>
+<li><p>Ecrire un exemple</p></li>
+<li><p>Ecrire des tests unitaires</p></li>
+<li><p>Ecrire le texte de la future vignette hors des chunks</p></li>
+</ul></section><section id="inflate-votre-flat_.rmd" class="level2" data-number="A.4"><h2 data-number="A.4" class="anchored" data-anchor-id="inflate-votre-flat_.rmd">
+<span class="header-section-number">A.4</span> Inflate votre flat_*.Rmd</h2>
+<ul>
+<li><p>Lancer le chunk <code>development-inflate</code></p></li>
+<li><p>Itérer jusqu’à passer le <code>check()</code></p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Il faut 0 error 0 warnings 0 notes</p>
+</div>
+</div>
+</div>
+</section><section id="installer-le-package" class="level2" data-number="A.5"><h2 data-number="A.5" class="anchored" data-anchor-id="installer-le-package">
+<span class="header-section-number">A.5</span> Installer le package</h2>
+<ul>
+<li><p>Build &gt; Install</p></li>
+<li><p>Lancer la fonction et afficher la documentation</p></li>
+</ul></section><section id="se-réjouir" class="level2" data-number="A.6"><h2 data-number="A.6" class="anchored" data-anchor-id="se-réjouir">
+<span class="header-section-number">A.6</span> Se réjouir</h2>
+</section><section id="exporter-son-package-en-tar.gz-pour-le-partager" class="level2" data-number="A.7"><h2 data-number="A.7" class="anchored" data-anchor-id="exporter-son-package-en-tar.gz-pour-le-partager">
+<span class="header-section-number">A.7</span> Exporter son package en tar.gz pour le partager</h2>
+<ul>
+<li>Build &gt; More &gt; Build Source Package ou <code>devtools::build(vignettes = TRUE)</code>
+</li>
+</ul></section><section id="installer-le-package-depuis-le-format-tar.gz" class="level2" data-number="A.8"><h2 data-number="A.8" class="anchored" data-anchor-id="installer-le-package-depuis-le-format-tar.gz">
+<span class="header-section-number">A.8</span> Installer le package depuis le format tar.gz</h2>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_local.html">install_local</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"path/to/package_0.0.0.9000.tar.gz"</span>,</span>
+<span>                       build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -655,21 +795,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./04-data.html" class="pagination-link" aria-label="Données">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Données</span></span>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./summary.html" class="pagination-link" aria-label="En résumé">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">En résumé</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06-versioning.html" class="pagination-link" aria-label="Versionnement">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Versionnement</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 
