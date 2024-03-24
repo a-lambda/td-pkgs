@@ -39,7 +39,7 @@ book:
         - href: 12-purrr.qmd
           text: "{purrr}"
         - href: summary.qmd
-          text: En résumé
+          text: "En résumé"
   appendices:
     - href: procedure_package_fusen.qmd
       text: "Créer un package R avec {fusen}"
