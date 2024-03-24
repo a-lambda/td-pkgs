@@ -1,35 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "TD - Développement de packages",
-    "section": "",
-    "text": "Préface\nCeci est un livre Quarto.\nPour en apprendre plus sur le sujet vous pouvez visiter https://quarto.org/docs/books.\nA suivre, quelques exercices liés à la création de packages1 et à la gestion de versions collaborative (git2, github3, ou bien encore gitlab4 vous dévoileront quelques-uns de leurs secrets :)",
-    "crumbs": [
-      "Préface"
-    ]
-  },
-  {
-    "objectID": "index.html#footnotes",
-    "href": "index.html#footnotes",
-    "title": "TD - Développement de packages",
-    "section": "",
-    "text": "R Packages (2e)↩︎\nhttps://git-scm.com/↩︎\nhttps://github.com/↩︎\nhttps://gitlab.com/↩︎",
-    "crumbs": [
-      "Préface"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "Nous allons reprendre votre package {squirrels} qui sert de fil rouge tout au long de la formation.\nUtlisez la table des matières de ce document pour naviguer plus facilement dans les différentes sections.\nLes solutions de ce TD vous seront fournies dans /shared à la fin de chaque étape, sous la forme de fichiers flat_*.Rmd et dev_history.Rmd.",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
     "objectID": "01-unit_tests.html",
     "href": "01-unit_tests.html",
     "title": "\n1  Tests unitaires\n",
@@ -67,6 +37,16 @@
     "text": "1.3 Vérifier le package\n\nVotre package doit retourner 0 errors 0 warnings 0 notes\nVérifiez que votre package peut s’installer sans encombres\n\n\ndevtools::build(vignettes = TRUE) # construit le package au format tar.gz\nremotes::install_local(path = \"~/squirrels_0.0.0.9000.tar.gz\") # installe le package depuis le format tar.gz\n\n\nEst-ce que les fonctions get_message_fur_color() et check_primary_color_is_ok() sont accessibles ?",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Tests unitaires</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Nous allons reprendre votre package {squirrels} qui sert de fil rouge tout au long de la formation.\nUtlisez la table des matières de ce document pour naviguer plus facilement dans les différentes sections.\nLes solutions de ce TD vous seront fournies dans /shared à la fin de chaque étape, sous la forme de fichiers flat_*.Rmd et dev_history.Rmd.",
+    "crumbs": [
+      "Introduction"
     ]
   },
   {
@@ -377,6 +357,26 @@
     "text": "Ce TD permet de mettre en pratique les principaux mécanismes à connaître et à mettre en oeuvre pour pouvoir créer et partager son premier package R.",
     "crumbs": [
       "En résumé"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "TD - Développement de packages",
+    "section": "",
+    "text": "Préface\nCeci est un livre Quarto.\nPour en apprendre plus sur le sujet vous pouvez visiter https://quarto.org/docs/books.\nA suivre, quelques exercices liés à la création de packages1 et à la gestion de versions collaborative (git2, github3, ou bien encore gitlab4 vous dévoileront quelques-uns de leurs secrets :)",
+    "crumbs": [
+      "Préface"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "TD - Développement de packages",
+    "section": "",
+    "text": "R Packages (2e)↩︎\nhttps://git-scm.com/↩︎\nhttps://github.com/↩︎\nhttps://gitlab.com/↩︎",
+    "crumbs": [
+      "Préface"
     ]
   }
 ]
