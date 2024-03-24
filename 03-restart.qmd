@@ -10,4 +10,6 @@ Votre package doit retourner 0 errors 0 warnings 0 notes
 
 :::
 
-> **Pour vous aider vous pouvez d’ores et déjà suivre la procédure condensée que vous trouverez dans** `docs/procedure_package_fusen.html`
+**Vous trouverez la procédure condensée de création de packages avec `{fusen}` en** @sec-annexeA
+
+
