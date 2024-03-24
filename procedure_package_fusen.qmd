@@ -1,0 +1,137 @@
+# Mémo création de package R avec `{fusen}` {#sec-annexeA}
+
+::: {.callout-warning}
+## Note préliminaire
+
+:::: {.bashbox}
+
+\$ ceci est du code bash, à lancer dans le terminal
+
+::::
+
+```{r}
+#| label: R_code
+#| eval: false
+
+ceci est un code R, à lancer dans R
+
+```
+
+:::
+
+## Créer un projet Rstudio {fusen}
+
+### Sans utiliser git
+
+- New project > New directory > Package using {fusen} > Choisir le template adapté
+
+### Avec git
+
+- Initier un projet sur GitLab/GitHub
+
+- Récuperer le chemin de votre projet, de la forme `https://gitlab.com/votre_nom/monprojet.git`, puis …
+
+#### Version 1
+
+- New project > Version control > git
+
+```{r}
+#| label: create_fusen
+#| eval: false
+
+fusen::create_fusen(path = ".", template = <votre choix>, overwrite = TRUE)
+
+```
+
+- Sélectionnez tous les fichiers modifiés de votre projet
+
+- Réalisez un 1er `commit` (avec un message explicite, par exemple "Init fusen package")
+
+- Réalisez un `push` pour l’envoyer vers le remote.
+
+Si la flèche montante n’est pas active, alors utilisez la ligne de commande dans le terminal:
+
+::: {.bashbox}
+
+\$ git push -u origin main
+
+:::
+
+#### Version 2
+
+New project > New directory > Package using {fusen} > Choisir le template adapté > Cocher "Create a git repository"
+
+```{r}
+#| label: use_git_remote
+#| eval: false
+
+usethis::use_git()
+usethis::use_git_remote("origin", url = "https://gitlab.com/votre_nom/monprojet.git", overwrite = TRUE)
+
+```
+
+- Dans le terminal
+
+::: {.bashbox}
+
+\$ git push -u origin main
+
+:::
+
+## Remplir DESCRIPTION
+
+- Modifier et lancer le chunk `description` dans `dev/0-dev_history.Rmd`
+
+## Remplir flat_*.Rmd
+
+- Supprimer la section de démonstration du template et créer une section destinée à la fonction avec l’**Addin** RStudio > {fusen} > Add {fusen} chunks
+
+- Prototyper dans un chunk de dévelopement
+
+- Mettre en fonction dans un chunk dédié
+
+- Documenter vos fonctions avec la syntax `{roxygen2}`
+
+- Gérer les dépendances (`@ImportFrom`, `@export`)
+
+- Ecrire un exemple
+
+- Ecrire des tests unitaires
+
+- Ecrire le texte de la future vignette hors des chunks
+
+##  Inflate votre flat_*.Rmd
+
+- Lancer le chunk `development-inflate`
+
+- Itérer jusqu’à passer le `check()`
+
+::: {.callout-note collapse="false"}
+
+Il faut 0 error 0 warnings 0 notes
+
+:::
+
+## Installer le package
+
+- Build > Install
+
+- Lancer la fonction et afficher la documentation
+
+## Se réjouir
+
+## Exporter son package en tar.gz pour le partager
+
+- Build > More > Build Source Package ou `devtools::build(vignettes = TRUE)`
+
+## Installer le package depuis le format tar.gz
+
+```{r}
+#| label: install_local
+#| eval: false
+
+# install.packages("remotes")
+remotes::install_local(path = "path/to/package_0.0.0.9000.tar.gz",
+                       build_vignettes = TRUE)
+```
+
