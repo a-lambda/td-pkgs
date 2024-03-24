@@ -1,0 +1,64 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+
+.bashbox {
+  margin-top: 1em !important;
+  margin-bottom: 1em;
+
+  border-radius: .3rem;
+  border-left: solid 1px;
+  border-right: solid 1px black;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  border-left-color: black;
+
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-left: 0.8em;
+  height: 3em; /* extra important */
+  overflow: hidden; /* extra important */
+
+  font-size: 0.8rem;
+  font-weight: 100;
+  font-family: "Lucida console";
+  color: #00BF30;
+  background-color: black;
+}
+
+/*--
+.bashbox-icon {
+  height: 0.9rem;
+  width: 0.9rem;
+  display: inline-block;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: 0.9rem 0.9rem;
+  margin-top: .5rem;
+  padding-right: .5rem;
+  background-image: url('images/linux.svg');
+}
+
+.bashbox-header {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border-bottom: none;
+  font-weight: 600;
+  opacity: 85%;
+  font-size: 0.9rem;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  display: flex;
+  background-color: black;
+}
+
+.bashbox-body {
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-family: "Lucida console";
+  color: #00DF30;
+  background-color: black;
+}
+--*/
