@@ -284,7 +284,7 @@
     "href": "12-purrr.html",
     "title": "\n12  {purrr}\n",
     "section": "",
-    "text": "12.1 Intégrer les données au package\nCes fichiers contiennent les données enregistrées sur 4 jours :",
+    "text": "12.1 Intégrer les données au package\nCes fichiers contiennent les données enregistrées sur 4 jours :\n17 octobre 2018, 18 octobre 2018, 19 octobre 2018, et 20 octobre 2018.",
     "crumbs": [
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>{purrr}</span>"
     ]
@@ -294,7 +294,7 @@
     "href": "12-purrr.html#intégrer-les-données-au-package",
     "title": "\n12  {purrr}\n",
     "section": "",
-    "text": "Intégrez les 4 fichiers suivants dans inst/ (ils sont présents dans votre dossier data de bakacode) :\n\n“nyc_squirrels_17.xlsx”\n“nyc_squirrels_18.xlsx”\n“nyc_squirrels_19.xlsx”\n“nyc_squirrels_20.xlsx”\n\n\n\n\n\n17 octobre 2018,\n18 octobre 2018,\n19 octobre 2018, et\n20 octobre 2018.",
+    "text": "Intégrez les 4 fichiers suivants dans inst/ (ils sont présents dans votre dossier data de bakacode) :\n\n“nyc_squirrels_17.xlsx”\n“nyc_squirrels_18.xlsx”\n“nyc_squirrels_19.xlsx”\n“nyc_squirrels_20.xlsx”",
     "crumbs": [
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>{purrr}</span>"
     ]
