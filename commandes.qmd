@@ -1,0 +1,16 @@
+---
+title: "commandes"
+---
+
+## commandes utilisées pour la création de packages
+
+### Création du package 
+
+```{r}
+#| label: create_fusen
+#| eval: false
+
+fusen::create_fusen(path = "../GITLAB/squirrels", template = "minimal", flat_name = "first")
+
+```
+
