@@ -1,10 +1,11 @@
 ---
-title: "commandes"
+title: "commandes utilisées pour la création de packages"
+format:
+  html: 
+    code-overflow: wrap
 ---
 
-## commandes utilisées pour la création de packages
-
-### Création du package 
+## Création de la structure du package 
 
 ```{r}
 #| label: create_fusen
@@ -13,4 +14,79 @@ title: "commandes"
 fusen::create_fusen(path = "../GITLAB/squirrels", template = "minimal", flat_name = "first")
 
 ```
+
+La structure créée est la suivante :
+
+![](images/package_structure.png)
+
+Dans le répertoire principale du projet :
+
+- le fichier `.gitignore` ignore 
+  - le dossier `.Rproj.user`
+  - le fichier `.Rhistory`
+  - les fichiers `.RData`, `.DS_Store` et `.httr-oauth`
+
+- le fichier `.Rbuildignore` ignore tout ce qui se trouve dans le dossier `dev` (`^dev$`)
+
+- Le répertoire `dev` contient :
+
+  - un fichier `.gitignore` ignorant les fichiers `*.html` et `*.R`
+
+  - 2 fichiers Rmarkdown
+
+    - `0-dev_history.Rmd` contenant les données générales ainsi qu'un ensemble de commandes
+    - `flat_first.Rmd` contenant les définitions de fonctions ainsi que les exemples et les tests unitaires
+  
+- le dossier R est un dossier réceptacle des futures fonctions
+
+## Création du fichier DESCRIPTION
+
+```{r}
+#| label: fill_description
+#| eval: false
+
+# Describe your package
+fusen::fill_description(
+  pkg = here::here(),
+  fields = list(
+    Title = "Build A Package From Rmarkdown File",
+    Description = "Use Rmarkdown First method to build your package. Start your package with documentation. Everything can be set from a Rmarkdown file in your project.",
+    `Authors@R` = c(
+      person("John", "Doe", email = "john@email.me", role = c("aut", "cre"), comment = c(ORCID = "0000-0000-0000-0000"))
+    )
+  )
+)
+
+```
+
+Voici le fichier DESCRIPTION généré après avoir alimenté les sections **Title**, **Description** et **@Authors@R** et lancé la commande `fill_description` :
+
+![](images/DESCRIPTION.png)
+
+## Création de la licence
+
+```{r}
+#| label: use_mit_licence
+#| eval: false
+
+# Define License with use_*_license()
+usethis::use_mit_license("John Doe")
+
+```
+
+Après saisie de l'argument et validation, la commande `use_mi_license` alimente la section **License** du fichier **DESCRIPTION** et génère deux fichiers :
+
+- LICENSE
+- LICENSE.md
+
+## Vérification de la présence de Rtools (sous Windows)
+
+```{r}
+#| label: has_rtools
+#|
+pkgbuild::has_rtools()
+
+```
+
+
 
