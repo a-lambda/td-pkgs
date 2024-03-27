@@ -1,4 +1,7 @@
 # References {.unnumbered}
 
 ::: {#refs}
+
+Another reference in the main branch
+
 :::
