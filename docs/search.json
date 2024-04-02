@@ -1,13 +1,119 @@
 [
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "Introduction",
+    "objectID": "07-check_param.html",
+    "href": "07-check_param.html",
+    "title": "\n7  Vérification des paramètres\n",
     "section": "",
-    "text": "Nous allons reprendre votre package {squirrels} qui sert de fil rouge tout au long de la formation.\nUtlisez la table des matières de ce document pour naviguer plus facilement dans les différentes sections.\nLes solutions de ce TD vous seront fournies dans /shared à la fin de chaque étape, sous la forme de fichiers flat_*.Rmd et dev_history.Rmd.",
+    "text": "7.1 Ajouter la fonction study_activity()\n#' Study the activities of the squirrels given a primary fur color\n#'\n#' @param df_squirrels_act Data frame. A dataset with the activities of the squirrels. This dataset mush have at leat these 4 columns: \"age\", \"primary_fur_color\", \"activity\", \"counts\".\n#' @param col_primary_fur_color Character. The color of the primary fur color of interest. Only the squirrels with this primary fur color will be considered in the analysis.\n#' \n#' @importFrom dplyr filter\n#' @importFrom ggplot2 ggplot aes geom_col scale_fill_manual labs\n#'\n#' @return A list of two named elements. The first one is the filtered table. The second one is the ggplot.\n#' @export\n#'\n#' @examples\nstudy_activity &lt;- function(df_squirrels_act, col_primary_fur_color) {\n  \n  if(isFALSE(is.data.frame(df_squirrels_act))) {\n    stop(\"df_squirrels_act is not a data frame\")\n  }\n  \n  if(isFALSE(is.character(col_primary_fur_color))) {\n    stop(\"col_primary_fur_color is not a character vector\")\n  }\n  \n  \n  table &lt;- df_squirrels_act |&gt; \n    filter(primary_fur_color == col_primary_fur_color)\n    \n  graph &lt;- table |&gt; \n    ggplot() +\n    aes(x = activity, y = counts, fill = age) +\n    geom_col() +\n    labs(x = \"Type of activity\",\n         y = \"Number of observations\",\n         title = glue(\"Type of activity by age for {tolower(col_primary_fur_color)} squirrels\")) +\n    scale_fill_manual(name = \"Age\",\n                      values = c(\"#00688B\", \"#00BFFF\"))\n  \n  return(list(table = table, graph = graph))\n}\ndata(data_act_squirrels)\nstudy_activity(df_squirrels_act = data_act_squirrels, \n               col_primary_fur_color = \"Gray\")",
     "crumbs": [
       "TD",
-      "Introduction"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vérification des paramètres</span>"
+    ]
+  },
+  {
+    "objectID": "07-check_param.html#ajouter-la-fonction-study_activity",
+    "href": "07-check_param.html#ajouter-la-fonction-study_activity",
+    "title": "\n7  Vérification des paramètres\n",
+    "section": "",
+    "text": "Dans votre fichier flat flat_study_squirrels.Rmd, intégrez la fonction study_activity() :\n\n\n\nCette fonction study_activity() utilise plusieurs nouveaux packages. Pensez à les ajouter dans votre chunck de développement afin de les rendre disponibles pour les développeurs.\nAjoutez un appel à check_squirrel_data_integrity() au tout début de la fonction pour vous assurer de l’intégrité des données\nAjoutez un exemple :\n\n\n\nAjoutez des tests unitaires\nRéalisez un inflate de votre fichier flat. Le check de votre package doit renvoyer : 0 errors, 0 warnings\nCapturez l’état de votre package avec un commit\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nNe pas tenir compte des notes sur les global functions ou variables",
+    "crumbs": [
+      "TD",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vérification des paramètres</span>"
+    ]
+  },
+  {
+    "objectID": "07-check_param.html#créer-la-fonction-save_as_csv",
+    "href": "07-check_param.html#créer-la-fonction-save_as_csv",
+    "title": "\n7  Vérification des paramètres\n",
+    "section": "\n7.2 Créer la fonction save_as_csv()\n",
+    "text": "7.2 Créer la fonction save_as_csv()\n\n\n\nDans votre fichier flat flat_study_squirrels.Rmd, créez une fonction save_as_csv() qui :\n\nprend en paramètres un jeu de données et une chaîne de caractères qui correspond au chemin du fichier qui doit être créé\npermet d’enregistrer le jeu de données en csv avec la fonction write.csv2() du package {utils} au chemin spécifié\nrenvoie en sortie le chemin complet du csv créé\n\nvérifie les différents paramètres de l’utilisateur:\n\nVous pouvez vérifier que le jeu de données est bien de classe data.frame\nVous pouvez vérifier que le jeu de données n’a pas un nombre de lignes nul\nVous pouvez vérifier que la chaîne de caractères qui correspond au chemin du fichier a bien l’extension .csv (voir la fonction file_ext() du package {tools})\nVous pouvez vérifier que le dossier dans lequel doit être stocké le fichier existe\n\n\n\n\n\nPour vous aider :\n\nCes lignes doivent fonctionner :\n\n\n# Création d'un dossier temporaire\nmon_dossier_temp &lt;- tempfile(pattern = \"savecsv\")\ndir.create(mon_dossier_temp)\n\n# ok : le fichier .csv est enregistré dans le projet actuel\niris |&gt; save_as_csv(file.path(mon_dossier_temp, \"output.csv\"))\n\n# ok : le fichier .csv est enregistré et le fichier s'ouvre\niris |&gt; save_as_csv(file.path(mon_dossier_temp, \"output.csv\")) |&gt; browseURL()  \n\n\nCes lignes doivent retourner une erreur explicite :\n\n\n# erreur : l'extension du fichier à créer n'est pas la bonne\niris |&gt; save_as_csv(file.path(mon_dossier_temp, \"output.xlsx\")) \n\n# erreur : la fonction n'est pas appliquée à un data.frame\nNULL |&gt; save_as_csv(file.path(mon_dossier_temp, \"output.csv\"))\n\n# erreur : le chemin où doit être enregistré le fichier n'existe pas\niris |&gt; save_as_csv(file.path(mon_dossier_temp, \"nexiste/pas/output.csv\")) \n\n\n\nEn guise d’exemple reproductible de votre fonction, faites en sorte d’exporter la table créée en sortie de la fonction study_activity() que vous avez intégrée précédemment\n\nExportez le fichier csv dans un dossier temporaire pour ne pas polluer le package\n\n\nEn vous aidant de la documentation de la fonction study_activity(), ajoutez la documentation pour la fonction save_as_csv()\nAjoutez des tests unitaires\nRéalisez un inflate de votre fichier flat. Le check de votre package doit renvoyer : 0 errors, 0 warnings\nCapturez l’état de votre projet avec un commit et pushez vos modifications sur le remote\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nNe pas tenir compte des notes sur les global functions or variables lors du check",
+    "crumbs": [
+      "TD",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vérification des paramètres</span>"
+    ]
+  },
+  {
+    "objectID": "07-check_param.html#versionner-les-développements",
+    "href": "07-check_param.html#versionner-les-développements",
+    "title": "\n7  Vérification des paramètres\n",
+    "section": "\n7.3 Versionner les développements",
+    "text": "7.3 Versionner les développements\n\nVersionner les développements\nPushez vos modifications une fois vos modifications terminées\nVotre remote doit contenir vos deux nouvelles fonctions\n\n\n\n\n\n\n\nMessage à destination des formateurices\n\n\n\n\n\nOuvrir une issue sur le projet GitLab de chaque apprenant(e):\n\n\n\n\nOuvrez une issue par apprenant.e dont le titre est : “[bug] Modifier la fonction save_as_csv() pour avoir la possibilité de modifier l’encodage”",
+    "crumbs": [
+      "TD",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vérification des paramètres</span>"
+    ]
+  },
+  {
+    "objectID": "08-first_merge_requests.html",
+    "href": "08-first_merge_requests.html",
+    "title": "\n8  Premières Merge Requests\n",
+    "section": "",
+    "text": "8.1 Une Merge Request seul.e",
+    "crumbs": [
+      "TD",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Premières Merge Requests</span>"
+    ]
+  },
+  {
+    "objectID": "08-first_merge_requests.html#une-merge-request-seul.e",
+    "href": "08-first_merge_requests.html#une-merge-request-seul.e",
+    "title": "\n8  Premières Merge Requests\n",
+    "section": "",
+    "text": "8.1.1 Ouvrir une issue\n\nRendez-vous sur votre projet GitLab\n\nCréez une issue “Modifier le README pour indiquer que ce package a été créé dans le cadre d’une formation N2”\n\nIndiquez dedans ce qui est attendu : Modifier le README pour indiquer que ce package a été créé dans le cadre d’une formation N2\nAssignez cette issue à vous-même\n\n\n\n8.1.2 Prendre en charge l’issue\n\nCréez une nouvelle branche de développement depuis main (vous pouvez le faire directement depuis GitLab, dans l’issue concernée)\nFaites un pull\nDans la branche de développement, prenez en charge l’issue : effectuez les modifications demandées sur le fichier README\nFaites un commit et un push\n\n8.1.3 Ouvrir une MR et la prendre en charge\n\nOuvrez une Merge Request pour proposer la fusion de vos développements dans la branche main et assignez-la à vous-même\nMergez vous-même votre MR",
+    "crumbs": [
+      "TD",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Premières Merge Requests</span>"
+    ]
+  },
+  {
+    "objectID": "08-first_merge_requests.html#une-merge-request-collaborative",
+    "href": "08-first_merge_requests.html#une-merge-request-collaborative",
+    "title": "\n8  Premières Merge Requests\n",
+    "section": "\n8.2 Une Merge Request collaborative",
+    "text": "8.2 Une Merge Request collaborative\n\n\n\n\n\n\nNote\n\n\n\n\n\nVous allez maintenant tous.tes travailler sur le repo de votre formateurice. Et vous allez devoir reviewer le travail d’un.e de vos camarades.\n\n\n\n\n\n\n\n\n\nMessage préalable à destination des formateurices\n\n\n\n\n\nPour cette partie, les apprenant.e.s vont travailler sur votre projet\n\n\n\n\nAssurez-vous qu’ielles soient tous.tes des membres de votre repo, et qu’ielles aient des droits de Developers. Assurez-vous également que la branche main soit protégée des push, et que seuls les Maintainers aient le droit d’accepter les merge requests vers main.\n\nOuvrez une issue par apprenant.e :\n\n“Ajouter une fonction get_welcome_message_*()”, où * est le prénom de l’apprenant.e (par exemple, get_welcome_message_simone()).\n\n\n\n\n\n\n\n\n\nCette issue doit contenir la description suivante\n\n\n\n\n\n“Créer une fonction qui s’appelle get_welcome_message_simone(), et qui renvoie le message “Hey ! Nous sommes le 23/01/2023, c’est un super jour pour aller observer les écurueils, non ?” quand elle est appelée de la manière suivante :\nget_welcome_message_simone(date = \"23/01/2023\").\n\n\n\n\nCette fonction doit être testée et documentée.\n\n\nget_welcome_message_simone(date = \"23/01/2023\")\n\n\n\n\n\n\n\n## Hey ! Nous sommes le 23/01/2023, c’est un super jour pour aller observer les écureuils, non ?\n\n\n\n\n\nLes apprenant.e.s vont travailler seul.e pour prendre en charge leur issue. Mais ils seront chargé.e.s de reviewer la MR d’une autre personne. Pour cela, il faut créer “une chaîne” de binômes. Si vous avez des apprenant.e.s A, B, C, D dans votre groupe, alors :\n\nA assigne la MR à B\nB assigne la MR à C\nC assigne la MR à D\nD assigne la MR de à A\n\n\n\nDonnez ces infos aux apprenant.e.s, pour qu’ielles sachent exactement à qui assigner la MR le moment venu.\n\n8.2.1 Prendre en charge l’issue\n\nRendez-vous sur le projet GitLab de votre formateurice\nClonez le repo dans bakacode, à un endroit différent de celui où vous avez stocké votre propre repo\nCréez une nouvelle branche de développement depuis main\nFaites un pull\nPrenez en charge l’issue (création de la fonction, testée et documentée)\nFaites un commit et un push\n\n8.2.2 Ouvrir une MR et l’assigner à son.sa camarade\n\nOuvrez une Merge Request pour proposer la fusion de vos développements dans la branche main et assignez-la à la personne qui vous a été indiquée par votre formateurice\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nEntre temps, l’un.e de vos camarades aura fait la même chose pour vous.\n\n\n\n\n8.2.3 Reviewer la MR qui vous attend\n\nRécupérez la branche de votre camarade\nVérifiez que tout est OK. A défaut, vous pouvez amender son travail en poussant de nouveaux commits dans sa branche. Ils apparaîtront aussi dans la MR.\nCliquez sur “Approve” dans la MR si tout est OK",
+    "crumbs": [
+      "TD",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Premières Merge Requests</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Développement de packages",
+    "section": "",
+    "text": "Préambule\nCeci est un livre Quarto.\nPour en apprendre plus sur le sujet vous pouvez visiter https://quarto.org/docs/books.\nA suivre, quelques exercices liés à la création de packages1 et à la gestion de versions collaborative (git2, github3, ou bien encore gitlab4 vous dévoileront quelques-uns de leurs secrets :)",
+    "crumbs": [
+      "*Préambule*"
+    ]
+  },
+  {
+    "objectID": "index.html#finalité-du-présent-td",
+    "href": "index.html#finalité-du-présent-td",
+    "title": "Développement de packages",
+    "section": "Finalité du présent TD",
+    "text": "Finalité du présent TD\nCe TD permet de mettre en pratique les principaux mécanismes à connaître et à mettre en oeuvre pour pouvoir créer et partager son premier package R.",
+    "crumbs": [
+      "*Préambule*"
+    ]
+  },
+  {
+    "objectID": "index.html#contexte",
+    "href": "index.html#contexte",
+    "title": "Développement de packages",
+    "section": "Contexte",
+    "text": "Contexte\nNous allons reprendre votre package {squirrels} qui sert de fil rouge tout au long de la formation.\nUtlisez la table des matières de ce document pour naviguer plus facilement dans les différentes sections.\nLes solutions de ce TD vous seront fournies dans /shared à la fin de chaque étape, sous la forme de fichiers flat_*.Rmd et dev_history.Rmd.",
+    "crumbs": [
+      "*Préambule*"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Développement de packages",
+    "section": "",
+    "text": "R Packages (2e)↩︎\nhttps://git-scm.com/↩︎\nhttps://github.com/↩︎\nhttps://gitlab.com/↩︎",
+    "crumbs": [
+      "*Préambule*"
     ]
   },
   {
@@ -73,7 +179,7 @@
     "text": "Créez un package {squirrels2} qui contient tous les éléments vus jusqu’ici. Les fonctions (avec exemples reproductibles et tests), la documentation, etc.\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nVotre package doit retourner 0 errors 0 warnings 0 notes\n\n\n\nVous trouverez la procédure condensée de création de packages avec {fusen} en Annexe A",
     "crumbs": [
       "TD",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Et si on recommençait ?</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Et si on recommençait depuis le début ?</span>"
     ]
   },
   {
@@ -151,83 +257,6 @@
     "crumbs": [
       "TD",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Versionnement</span>"
-    ]
-  },
-  {
-    "objectID": "07-check_param.html",
-    "href": "07-check_param.html",
-    "title": "\n7  Vérification des paramètres\n",
-    "section": "",
-    "text": "7.1 Ajouter la fonction study_activity()\n#' Study the activities of the squirrels given a primary fur color\n#'\n#' @param df_squirrels_act Data frame. A dataset with the activities of the squirrels. This dataset mush have at leat these 4 columns: \"age\", \"primary_fur_color\", \"activity\", \"counts\".\n#' @param col_primary_fur_color Character. The color of the primary fur color of interest. Only the squirrels with this primary fur color will be considered in the analysis.\n#' \n#' @importFrom dplyr filter\n#' @importFrom ggplot2 ggplot aes geom_col scale_fill_manual labs\n#'\n#' @return A list of two named elements. The first one is the filtered table. The second one is the ggplot.\n#' @export\n#'\n#' @examples\nstudy_activity &lt;- function(df_squirrels_act, col_primary_fur_color) {\n  \n  if(isFALSE(is.data.frame(df_squirrels_act))) {\n    stop(\"df_squirrels_act is not a data frame\")\n  }\n  \n  if(isFALSE(is.character(col_primary_fur_color))) {\n    stop(\"col_primary_fur_color is not a character vector\")\n  }\n  \n  \n  table &lt;- df_squirrels_act |&gt; \n    filter(primary_fur_color == col_primary_fur_color)\n    \n  graph &lt;- table |&gt; \n    ggplot() +\n    aes(x = activity, y = counts, fill = age) +\n    geom_col() +\n    labs(x = \"Type of activity\",\n         y = \"Number of observations\",\n         title = glue(\"Type of activity by age for {tolower(col_primary_fur_color)} squirrels\")) +\n    scale_fill_manual(name = \"Age\",\n                      values = c(\"#00688B\", \"#00BFFF\"))\n  \n  return(list(table = table, graph = graph))\n}\ndata(data_act_squirrels)\nstudy_activity(df_squirrels_act = data_act_squirrels, \n               col_primary_fur_color = \"Gray\")",
-    "crumbs": [
-      "TD",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vérification des paramètres</span>"
-    ]
-  },
-  {
-    "objectID": "07-check_param.html#ajouter-la-fonction-study_activity",
-    "href": "07-check_param.html#ajouter-la-fonction-study_activity",
-    "title": "\n7  Vérification des paramètres\n",
-    "section": "",
-    "text": "Dans votre fichier flat flat_study_squirrels.Rmd, intégrez la fonction study_activity() :\n\n\n\nCette fonction study_activity() utilise plusieurs nouveaux packages. Pensez à les ajouter dans votre chunck de développement afin de les rendre disponibles pour les développeurs.\nAjoutez un appel à check_squirrel_data_integrity() au tout début de la fonction pour vous assurer de l’intégrité des données\nAjoutez un exemple :\n\n\n\nAjoutez des tests unitaires\nRéalisez un inflate de votre fichier flat. Le check de votre package doit renvoyer : 0 errors, 0 warnings\nCapturez l’état de votre package avec un commit\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nNe pas tenir compte des notes sur les global functions ou variables",
-    "crumbs": [
-      "TD",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vérification des paramètres</span>"
-    ]
-  },
-  {
-    "objectID": "07-check_param.html#créer-la-fonction-save_as_csv",
-    "href": "07-check_param.html#créer-la-fonction-save_as_csv",
-    "title": "\n7  Vérification des paramètres\n",
-    "section": "\n7.2 Créer la fonction save_as_csv()\n",
-    "text": "7.2 Créer la fonction save_as_csv()\n\n\n\nDans votre fichier flat flat_study_squirrels.Rmd, créez une fonction save_as_csv() qui :\n\nprend en paramètres un jeu de données et une chaîne de caractères qui correspond au chemin du fichier qui doit être créé\npermet d’enregistrer le jeu de données en csv avec la fonction write.csv2() du package {utils} au chemin spécifié\nrenvoie en sortie le chemin complet du csv créé\n\nvérifie les différents paramètres de l’utilisateur:\n\nVous pouvez vérifier que le jeu de données est bien de classe data.frame\nVous pouvez vérifier que le jeu de données n’a pas un nombre de lignes nul\nVous pouvez vérifier que la chaîne de caractères qui correspond au chemin du fichier a bien l’extension .csv (voir la fonction file_ext() du package {tools})\nVous pouvez vérifier que le dossier dans lequel doit être stocké le fichier existe\n\n\n\n\n\nPour vous aider :\n\nCes lignes doivent fonctionner :\n\n\n# Création d'un dossier temporaire\nmon_dossier_temp &lt;- tempfile(pattern = \"savecsv\")\ndir.create(mon_dossier_temp)\n\n# ok : le fichier .csv est enregistré dans le projet actuel\niris |&gt; save_as_csv(file.path(mon_dossier_temp, \"output.csv\"))\n\n# ok : le fichier .csv est enregistré et le fichier s'ouvre\niris |&gt; save_as_csv(file.path(mon_dossier_temp, \"output.csv\")) |&gt; browseURL()  \n\n\nCes lignes doivent retourner une erreur explicite :\n\n\n# erreur : l'extension du fichier à créer n'est pas la bonne\niris |&gt; save_as_csv(file.path(mon_dossier_temp, \"output.xlsx\")) \n\n# erreur : la fonction n'est pas appliquée à un data.frame\nNULL |&gt; save_as_csv(file.path(mon_dossier_temp, \"output.csv\"))\n\n# erreur : le chemin où doit être enregistré le fichier n'existe pas\niris |&gt; save_as_csv(file.path(mon_dossier_temp, \"nexiste/pas/output.csv\")) \n\n\n\nEn guise d’exemple reproductible de votre fonction, faites en sorte d’exporter la table créée en sortie de la fonction study_activity() que vous avez intégrée précédemment\n\nExportez le fichier csv dans un dossier temporaire pour ne pas polluer le package\n\n\nEn vous aidant de la documentation de la fonction study_activity(), ajoutez la documentation pour la fonction save_as_csv()\nAjoutez des tests unitaires\nRéalisez un inflate de votre fichier flat. Le check de votre package doit renvoyer : 0 errors, 0 warnings\nCapturez l’état de votre projet avec un commit et pushez vos modifications sur le remote\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nNe pas tenir compte des notes sur les global functions or variables lors du check",
-    "crumbs": [
-      "TD",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vérification des paramètres</span>"
-    ]
-  },
-  {
-    "objectID": "07-check_param.html#versionner-les-développements",
-    "href": "07-check_param.html#versionner-les-développements",
-    "title": "\n7  Vérification des paramètres\n",
-    "section": "\n7.3 Versionner les développements",
-    "text": "7.3 Versionner les développements\n\nVersionner les développements\nPushez vos modifications une fois vos modifications terminées\nVotre remote doit contenir vos deux nouvelles fonctions\n\n\n\n\n\n\n\nMessage à destination des formateurices\n\n\n\n\n\nOuvrir une issue sur le projet GitLab de chaque apprenant(e):\n\n\n\n\nOuvrez une issue par apprenant.e dont le titre est : “[bug] Modifier la fonction save_as_csv() pour avoir la possibilité de modifier l’encodage”",
-    "crumbs": [
-      "TD",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Vérification des paramètres</span>"
-    ]
-  },
-  {
-    "objectID": "08-first_merge_requests.html",
-    "href": "08-first_merge_requests.html",
-    "title": "\n8  Premières Merge Requests\n",
-    "section": "",
-    "text": "8.1 Une Merge Request seul.e",
-    "crumbs": [
-      "TD",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Premières Merge Requests</span>"
-    ]
-  },
-  {
-    "objectID": "08-first_merge_requests.html#une-merge-request-seul.e",
-    "href": "08-first_merge_requests.html#une-merge-request-seul.e",
-    "title": "\n8  Premières Merge Requests\n",
-    "section": "",
-    "text": "8.1.1 Ouvrir une issue\n\nRendez-vous sur votre projet GitLab\n\nCréez une issue “Modifier le README pour indiquer que ce package a été créé dans le cadre d’une formation N2”\n\nIndiquez dedans ce qui est attendu : Modifier le README pour indiquer que ce package a été créé dans le cadre d’une formation N2\nAssignez cette issue à vous-même\n\n\n\n8.1.2 Prendre en charge l’issue\n\nCréez une nouvelle branche de développement depuis main (vous pouvez le faire directement depuis GitLab, dans l’issue concernée)\nFaites un pull\nDans la branche de développement, prenez en charge l’issue : effectuez les modifications demandées sur le fichier README\nFaites un commit et un push\n\n8.1.3 Ouvrir une MR et la prendre en charge\n\nOuvrez une Merge Request pour proposer la fusion de vos développements dans la branche main et assignez-la à vous-même\nMergez vous-même votre MR",
-    "crumbs": [
-      "TD",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Premières Merge Requests</span>"
-    ]
-  },
-  {
-    "objectID": "08-first_merge_requests.html#une-merge-request-collaborative",
-    "href": "08-first_merge_requests.html#une-merge-request-collaborative",
-    "title": "\n8  Premières Merge Requests\n",
-    "section": "\n8.2 Une Merge Request collaborative",
-    "text": "8.2 Une Merge Request collaborative\n\n\n\n\n\n\nNote\n\n\n\n\n\nVous allez maintenant tous.tes travailler sur le repo de votre formateurice. Et vous allez devoir reviewer le travail d’un.e de vos camarades.\n\n\n\n\n\n\n\n\n\nMessage préalable à destination des formateurices\n\n\n\n\n\nPour cette partie, les apprenant.e.s vont travailler sur votre projet\n\n\n\n\nAssurez-vous qu’ielles soient tous.tes des membres de votre repo, et qu’ielles aient des droits de Developers. Assurez-vous également que la branche main soit protégée des push, et que seuls les Maintainers aient le droit d’accepter les merge requests vers main.\n\nOuvrez une issue par apprenant.e :\n\n“Ajouter une fonction get_welcome_message_*()”, où * est le prénom de l’apprenant.e (par exemple, get_welcome_message_simone()).\n\n\n\n\n\n\n\n\n\nCette issue doit contenir la description suivante\n\n\n\n\n\n“Créer une fonction qui s’appelle get_welcome_message_simone(), et qui renvoie le message “Hey ! Nous sommes le 23/01/2023, c’est un super jour pour aller observer les écurueils, non ?” quand elle est appelée de la manière suivante :\nget_welcome_message_simone(date = \"23/01/2023\").\n\n\n\n\nCette fonction doit être testée et documentée.\n\n\nget_welcome_message_simone(date = \"23/01/2023\")\n\n\n\n\n\n\n\n## Hey ! Nous sommes le 23/01/2023, c’est un super jour pour aller observer les écureuils, non ?\n\n\n\n\n\nLes apprenant.e.s vont travailler seul.e pour prendre en charge leur issue. Mais ils seront chargé.e.s de reviewer la MR d’une autre personne. Pour cela, il faut créer “une chaîne” de binômes. Si vous avez des apprenant.e.s A, B, C, D dans votre groupe, alors :\n\nA assigne la MR à B\nB assigne la MR à C\nC assigne la MR à D\nD assigne la MR de à A\n\n\n\nDonnez ces infos aux apprenant.e.s, pour qu’ielles sachent exactement à qui assigner la MR le moment venu.\n\n8.2.1 Prendre en charge l’issue\n\nRendez-vous sur le projet GitLab de votre formateurice\nClonez le repo dans bakacode, à un endroit différent de celui où vous avez stocké votre propre repo\nCréez une nouvelle branche de développement depuis main\nFaites un pull\nPrenez en charge l’issue (création de la fonction, testée et documentée)\nFaites un commit et un push\n\n8.2.2 Ouvrir une MR et l’assigner à son.sa camarade\n\nOuvrez une Merge Request pour proposer la fusion de vos développements dans la branche main et assignez-la à la personne qui vous a été indiquée par votre formateurice\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nEntre temps, l’un.e de vos camarades aura fait la même chose pour vous.\n\n\n\n\n8.2.3 Reviewer la MR qui vous attend\n\nRécupérez la branche de votre camarade\nVérifiez que tout est OK. A défaut, vous pouvez amender son travail en poussant de nouveaux commits dans sa branche. Ils apparaîtront aussi dans la MR.\nCliquez sur “Approve” dans la MR si tout est OK",
-    "crumbs": [
-      "TD",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Premières Merge Requests</span>"
     ]
   },
   {
@@ -315,7 +344,7 @@
     "text": "12.1 Intégrer les données au package\nCes fichiers contiennent les données enregistrées sur 4 jours :\n17 octobre 2018, 18 octobre 2018, 19 octobre 2018, et 20 octobre 2018.",
     "crumbs": [
       "TD",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>{purrr}</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>`{purrr}`</span>"
     ]
   },
   {
@@ -326,7 +355,7 @@
     "text": "Intégrez les 4 fichiers suivants dans inst/ (ils sont présents dans votre dossier data de bakacode) :\n\n“nyc_squirrels_17.xlsx”\n“nyc_squirrels_18.xlsx”\n“nyc_squirrels_19.xlsx”\n“nyc_squirrels_20.xlsx”",
     "crumbs": [
       "TD",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>{purrr}</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>`{purrr}`</span>"
     ]
   },
   {
@@ -337,7 +366,7 @@
     "text": "12.2 Importer les données du 17 octobre 2018\n\nTentez d’importer avec read_excel() les données du 17 octobre 2018\n\nRéalisez cette exploration dans le chunk development en haut de votre fichier flat flat_study_squirrels\n\n\n\n\n\n\nNote\n\n\n\n\n\nPensez que vous pouvez simuler l’installation des données avec pkgload::load_all()",
     "crumbs": [
       "TD",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>{purrr}</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>`{purrr}`</span>"
     ]
   },
   {
@@ -348,7 +377,7 @@
     "text": "12.3 Importer les données du 18 octobre 2018\n\nTentez d’importer avec read_excel() les données du 18 octobre 2018\n\nRéalisez cette exploration dans le chunk development en haut de votre fichier flat flat_study_squirrels\nQue constatez-vous ?",
     "crumbs": [
       "TD",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>{purrr}</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>`{purrr}`</span>"
     ]
   },
   {
@@ -359,7 +388,7 @@
     "text": "12.4 Jouer avec possibly()\n\nConstruisez avec possibly() une fonction nommée possi_excel() basée sur read_excel() qui renverra NULL si l’import n’a pas fonctionné\n\nVous n’avez pas à l’intégrer à votre package pour le moment. Réalisez cette exploration dans le chunk development en haut de votre fichier flat flat_study_squirrels\n\nTestez la sur les données du 17 octobre 2018\n\n\ndata_nyc_squirrels_17oct &lt;- possi_excel(path = system.file(\"nyc_squirrels_17.xlsx\", package = \"squirrels\"))\ndata_nyc_squirrels_17oct\n\n\nEt sur celles du 18 octobre 2018\n\n\ndata_nyc_squirrels_18oct &lt;- possi_excel(path = system.file(\"nyc_squirrels_18.xlsx\", package = \"squirrels\"))\ndata_nyc_squirrels_18oct",
     "crumbs": [
       "TD",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>{purrr}</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>`{purrr}`</span>"
     ]
   },
   {
@@ -370,7 +399,7 @@
     "text": "12.5 Importer avec possi_excel() les données de tous les jours disponibles\n\n\nUtilisez la fonction list.files() pour lister vos données :\n\nPrécisez le paramètre pattern = \"nyc_squirrels_[0-9][0-9].xlsx\" (l’expression régulière [0-9] permet de faire la correspondance avec n’importe quel chiffre entre 0 et 9)\nAjustez le paramètre full.names pour récupérer les chemins, et non les noms de fichiers uniquement\n\n\n\nRéalisez cette exploration dans le chunk development en haut de votre fichier flat flat_study_squirrels",
     "crumbs": [
       "TD",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>{purrr}</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>`{purrr}`</span>"
     ]
   },
   {
@@ -381,18 +410,7 @@
     "text": "12.6 Construire la fonction read_data_day_squirrels()\n\n\n\nDans votre fichier flat flat_study_squirrels.Rmd, créez une fonction read_data_day_squirrels() capable d’importer tous les fichiers de type “nyc_squirrels_[0-9][0-9].xlsx” d’un dossier\n\nElle doit prendre en entrée le chemin du dossier\nElle doit retourner une liste de données nommée (chaque élément de la liste doit être nommé avec le jour correspondant (17, 18, …)\nElle doit s’arrêter si le chemin donné en paramètre n’existe pas, et s’arrêter si le dossier ne contient pas the données sur les écureuils\n\n\nConstruisez votre exemple reproductibe sur les données du package (c.-à-d. les 4 fichiers)\n\nAjoutez dans votre exemple reproductible les éléments suivants :\n\nAffichage du nombre de lignes pour chaque table\nAffichage des imports qui ont fonctionné uniquement\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nVotre package doit retourner 0 errors 0 warnings 0 notes",
     "crumbs": [
       "TD",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>{purrr}</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "En résumé",
-    "section": "",
-    "text": "Ce TD permet de mettre en pratique les principaux mécanismes à connaître et à mettre en oeuvre pour pouvoir créer et partager son premier package R.",
-    "crumbs": [
-      "TD",
-      "En résumé"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>`{purrr}`</span>"
     ]
   },
   {
@@ -492,26 +510,6 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Créer un package R avec {fusen}</span>"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Développement de packages",
-    "section": "",
-    "text": "Préface\nCeci est un livre Quarto.\nPour en apprendre plus sur le sujet vous pouvez visiter https://quarto.org/docs/books.\nA suivre, quelques exercices liés à la création de packages1 et à la gestion de versions collaborative (git2, github3, ou bien encore gitlab4 vous dévoileront quelques-uns de leurs secrets :)",
-    "crumbs": [
-      "Préface"
-    ]
-  },
-  {
-    "objectID": "index.html#footnotes",
-    "href": "index.html#footnotes",
-    "title": "Développement de packages",
-    "section": "",
-    "text": "R Packages (2e)↩︎\nhttps://git-scm.com/↩︎\nhttps://github.com/↩︎\nhttps://gitlab.com/↩︎",
-    "crumbs": [
-      "Préface"
     ]
   }
 ]
