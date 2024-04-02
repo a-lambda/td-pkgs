@@ -9,11 +9,8 @@ book:
   date: "22/03/2024"
   chapters:
     - href: index.qmd
-      text: Préface
     - part: "TD"
       chapters:
-        - href: intro.qmd
-          text: Introduction
         - href: 01-unit_tests.qmd
           text: Tests unitaires
         - href: 02-package_doc.qmd
