@@ -2,11 +2,28 @@ project:
   type: book
   output-dir: docs
 
+format:
+  html:
+    #callout-appearance: simple
+    theme:
+      light:
+        - css/callout.css
+    lang: "fr"
+    cover-image: images/Rlogo.png
+    code-link: true
+    code-overflow: wrap
+  pdf:
+    documentclass: scrreprt
+
 book:
-  reader-mode: true
   title: "Développement de packages"
-  author: "anonymous"
-  date: "22/03/2024"
+  author:
+    - name: Alain Corvisier
+      email: alain.corvisier@proton.me
+      url: https://a-lambda.github.io
+      affiliation: CPAM des FLANDRES
+  date: last-modified
+  #open-graph: true
   chapters:
     - href: index.qmd
     - part: "TD"
@@ -31,17 +48,7 @@ book:
 
 bibliography: references.bib
 
-format:
-  html:
-    theme:
-      light:
-        - css/callout.css
-    lang: "fr"
-    cover-image: images/Rlogo.png
-    code-link: true
-    code-overflow: wrap
-  pdf:
-    documentclass: scrreprt
+
 
 
 
