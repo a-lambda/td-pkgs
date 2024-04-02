@@ -1,6 +1,4 @@
----
-title: "Premières Merge Requests"
----
+# Premières Merge Requests
 
 ## Une Merge Request seul.e
 

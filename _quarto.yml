@@ -12,31 +12,17 @@ book:
     - part: "TD"
       chapters:
         - href: 01-unit_tests.qmd
-          text: Tests unitaires
         - href: 02-package_doc.qmd
-          text: Documentation du package
         - href: 03-restart.qmd
-          text: Et si on recommençait ?
         - href: 04-data.qmd
-          text: Données
         - href: 05-check.qmd
-          text: Check
         - href: 06-versioning.qmd
-          text: Versionnement
         - href: 07-check_param.qmd
-          text: Vérification des paramètres
         - href: 08-first_merge_requests.qmd
-          text: Premières Merge Requests
         - href: 09-dots.qmd
-          text: Dots
         - href: 10-advanced_doc.qmd
-          text: Documentation avancée
         - href: 11-tidyeval.qmd
-          text: Tidyeval
         - href: 12-purrr.qmd
-          text: "{purrr}"
-        - href: summary.qmd
-          text: "En résumé"
   appendices:
     - href: procedure_package_fusen.qmd
       text: "Créer un package R avec {fusen}"

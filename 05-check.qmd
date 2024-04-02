@@ -1,6 +1,4 @@
----
-title: "Check"
----
+# Check
 
 - Relancez le check de votre package et assurez-vous qu’il renvoie 0 errors 0 warnings 0 notes
 

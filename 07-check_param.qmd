@@ -1,6 +1,4 @@
----
-title: "Vérification des paramètres"
----
+# Vérification des paramètres
 
 ## Ajouter la fonction `study_activity()`
 
