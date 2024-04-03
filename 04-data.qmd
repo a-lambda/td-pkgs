@@ -1,6 +1,4 @@
----
-title: "Données"
----
+# Données
 
 ## Données accessibles à l'utilisateur final
 

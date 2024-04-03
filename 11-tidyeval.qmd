@@ -1,6 +1,4 @@
----
-title: "Tidyeval"
----
+# Tidyeval
 
 ::: {.callout-important collapse="false"}
 

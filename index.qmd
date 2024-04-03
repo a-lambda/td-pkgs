@@ -1,7 +1,19 @@
-# Préface {.unnumbered}
+# *Préambule* {.unnumbered}
 
 Ceci est un livre Quarto.
 
 Pour en apprendre plus sur le sujet vous pouvez visiter <https://quarto.org/docs/books>.
 
 A suivre, quelques exercices liés à la création de packages^[[R Packages (2e)](https://r-pkgs.org/)] et à la gestion de versions collaborative (`git`^[[https://git-scm.com/](https://git-scm.com/)], `github`^[[https://github.com/](https://github.com/)], ou bien encore `gitlab`^[[https://gitlab.com/](https://gitlab.com/)] vous dévoileront quelques-uns de leurs secrets :)
+
+## Finalité du présent TD
+
+Ce TD permet de mettre en pratique les principaux mécanismes à connaître et à mettre en oeuvre pour pouvoir créer et partager son premier package R.
+
+## Contexte
+
+Nous allons reprendre votre package `{squirrels}` qui sert de fil rouge tout au long de la formation.
+
+Utlisez la table des matières de ce document pour naviguer plus facilement dans les différentes sections.
+
+Les solutions de ce TD vous seront fournies dans `/shared` à la fin de chaque étape, sous la forme de fichiers `flat_*.Rmd` et `dev_history.Rmd`.

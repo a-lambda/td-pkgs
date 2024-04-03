@@ -1,6 +1,4 @@
----
-title: "Et si on recommençait depuis le début ?"
----
+# Et si on recommençait depuis le début ?
 
 - Créez un package `{squirrels2}` qui contient tous les éléments vus jusqu’ici. Les fonctions (avec exemples reproductibles et tests), la documentation, etc.
 

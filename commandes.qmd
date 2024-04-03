@@ -1,0 +1,358 @@
+---
+title: "Commandes utilisées pour la création de packages"
+format:
+  html: 
+    code-overflow: wrap
+---
+
+## Création de la structure du package 
+
+```{r}
+#| label: create_fusen
+#| eval: false
+
+fusen::create_fusen(path = "../GITLAB/squirrels", template = "minimal", flat_name = "first")
+
+```
+
+La structure créée est la suivante :
+
+![](images/package_structure.png)
+
+Dans le répertoire principale du projet :
+
+- le fichier `.gitignore` ignore 
+  - le dossier `.Rproj.user`
+  - le fichier `.Rhistory`
+  - les fichiers `.RData`, `.DS_Store` et `.httr-oauth`
+
+- le fichier `.Rbuildignore` ignore tout ce qui se trouve dans le dossier `dev` (`^dev$`)
+
+- Le répertoire `dev` contient :
+
+  - un fichier `.gitignore` ignorant les fichiers `*.html` et `*.R`
+
+  - 2 fichiers Rmarkdown
+
+    - `0-dev_history.Rmd` contenant les données générales ainsi qu'un ensemble de commandes
+    - `flat_first.Rmd` contenant les définitions de fonctions ainsi que les exemples et les tests unitaires
+  
+- le dossier R est un dossier réceptacle des futures fonctions
+
+## Création du fichier DESCRIPTION
+
+```{r}
+#| label: fill_description
+#| eval: false
+
+# Describe your package
+fusen::fill_description(
+  pkg = here::here(),
+  fields = list(
+    Title = "Build A Package From Rmarkdown File",
+    Description = "Use Rmarkdown First method to build your package. Start your package with documentation. Everything can be set from a Rmarkdown file in your project.",
+    `Authors@R` = c(
+      person("John", "Doe", email = "john@email.me", role = c("aut", "cre"), comment = c(ORCID = "0000-0000-0000-0000"))
+    )
+  )
+)
+
+```
+
+Voici le fichier DESCRIPTION généré après avoir alimenté les sections **Title**, **Description** et **@Authors@R** et lancé la commande `fill_description` :
+
+![](images/DESCRIPTION.png)
+
+## Création de la licence
+
+```{r}
+#| label: use_mit_licence
+#| eval: false
+
+# Define License with use_*_license()
+usethis::use_mit_license("John Doe")
+
+```
+
+Après saisie de l'argument et validation, la commande `use_mi_license` alimente la section **License** du fichier **DESCRIPTION** et génère deux fichiers :
+
+- LICENSE
+- LICENSE.md
+
+## Vérification de la présence de Rtools (sous Windows)
+
+```{r}
+#| label: has_rtools
+#|
+pkgbuild::has_rtools()
+
+```
+
+## Inflat des 3 chunks associés à la fonction
+
+### Etape de développement dans la section `development`
+
+Ce chunk dédié qui ne sert qu'à l'étape de réflexion sur le contenu de la fonction.
+Son contenu ne sera jamais intégré dans le fichier généré par l'exécution de la commande `inflat`.
+
+On définit ici :
+
+- l'objectif de la fonction
+- les paramètres de la fonction
+- la valeur de retour de la fonction
+
+### Suppression des 3 chunks initiaux
+
+il est nécessaire de supprimer les 3 chunks `function-first`, `examples-first` et `tests-first`.
+
+### Intégration des nouveaux chunks
+
+De nouveaux chunks sont insérés dans le fichier `flat` avec l'addin **RStudio > {fusen} > Add {fusen} > chunks** pour accueillir la fonction `get_message_fur_color`
+
+### Alimentation du chunk `function-get_message_fur_color`
+
+- La définition de la fonction, se basant sur les étapes de développement préliminaires, est saisie dans le chunk `function-get_message_fur_color`
+
+- La fonction peut ensuite être documentée
+
+  - On positionne le curseur dans le corps de la fonction puis on appelle la commande **Code > Insert Roxygen Skeleton**
+
+  - Il faut ensuite saisir le titre de la fonction (sans point final) et sa description (avec un point final).
+
+  - On vérifie que les sections `@param` et `@return` sont correctement complétées.
+
+  - On oublie pas d'insérer la clause "`@imporFrom` glue glue" pour inclure la dépendance de la fonction dans sa documentation.
+
+### Complétion du chunk `examples-get_message_fur_color`
+
+Saisie de quelques examples d'utilisation dans cette section
+
+### Ecriture d'un(de) test(s) unitaire(s)
+
+Quelques tests unitaires sont insérés dans le chunk dédié `tests-get_message_fur_color`
+
+### Gonflage du package
+
+```{r}
+#| label: fusen_inflate
+#| eval: false
+
+fusen::inflate(flat_file = "dev/flat_study_squirrels.Rmd", vignette_name = "Study the squirrels")
+```
+
+::: {.callout-note collapse="false"}
+
+Il est possible de vider l'environnement avant d'exécuter la commande `inflate` pour éviter les conflits
+
+:::
+
+::: {.callout-warning collapse="false"}
+## Attention
+
+Le nom du fichier flat passé en argument est `dev/flat_study_squirrels.Rmd`. 
+Nous devons donc renommer le fichier `dev/flat_first.Rmd` en ce sens.
+
+:::
+
+L'exécution de la commande `inflate` produit :
+
+  - la création de l'onglet `build`
+
+  - une mise à jour de du fichier DESCRIPTION avec les dépendances
+  
+![](images/DESCRIPTION_inflate.png)
+  
+  - l'inclusion du fichier **get_message_fur_color.R** dans le dossier `R`
+  
+  - création du dossier `man` avec un fichier **get_message_fur_color.Rd** (documentation LateX)
+  
+  - création du fichier **NAMESPACE** à la racine
+  
+  - création du dossier `tests/testhat` avec insertion des tests unitaires
+  
+  - création du dossier `vignettes` et ajout de la vignette Rmarkdown
+  
+::: {.callout-note collapse="false"}
+Par défaut, la commande `inflate` lance 2 commandes :
+
+- `attachment::att_amend_desc()`, qui génère la documentation
+- `devtools::check()`, qui permet de vérifier que le package suit les règles
+
+:::
+ 
+## Installation du packages
+
+Depuis l'onglet **build > Install**
+
+## Vérification de l'aide sur la fonction du package
+
+```{r}
+#| label: get_help
+#| eval: false
+
+?get_message_fur_color
+```
+
+## Construction du tar.gz
+
+```{r}
+#| label: build
+#| eval: false
+
+devtools::build(vignettes = TRUE)
+
+```
+
+## Installation du tar.gz
+
+```{r}
+#| label: install_local
+#| eval: false
+
+remotes::install_local(path = "squirrels_0.0.0.9000.tar.gz", build_vignettes = TRUE)
+
+```
+
+## Création d'un site web dédié à la présentation du package
+
+```{r}
+#| label: build_site
+#| eval: false
+
+usethis::use_pkgdown()
+pkgdown::build_site(override = list(destination = "inst/site"))
+```
+
+## Ajout d'un README
+
+```{r}
+#| label: use_readme
+#| eval: false
+
+usethis::use_readme()
+devtools::build_readme() # to get README.md
+```
+
+## Ajout d'un code de conduite (COC)
+
+```{r}
+#| label: use_code_of_conduct
+#| eval: false
+
+usethis::use_code_of_conduct("contact@fake.com")
+```
+
+## Ajout d'un fichier de suivi des modifications de versions
+
+```{r}
+#| label: use_news_md
+#| eval: false
+
+usethis::use_news_md()
+usethis::use_version() # pour monter en version
+```
+
+## Réaliser un test de code coverage en local
+
+- quel pourcentage est couvert ?
+
+```{r}
+#| label: package_coverage
+#| eval: false
+
+covr::package_coverage()
+```
+
+- quel pourcentage ne l'est pas ?
+
+```{r}
+#| label: zero_coverage
+#| eval: false
+
+my_coverage <- covr::package_coverage()
+covr::zero_coverage(my_coverage)
+```
+
+- rapport de couverture
+
+```{r}
+#| label: report
+#| eval: false
+
+covr::report()
+```
+
+## Insertion de données
+
+### dans `data-raw`
+
+Ces données sont à destination des développeurs
+
+```{r}
+#| label: use_data_raw
+#| eval: false
+# crée un répertoire data-raw avec un fichier data_act_squirrels.R
+usethis::use_data_raw(name = "data_act_squirrels") 
+```
+
+A l'intérieur de ce fichier les instructions sont données pour construire un fichier .rda dans le répertoire `data` et accessible à l'utilisateur par l'instruction `data(nom_du_dataset)`
+
+![](images/howToSetDataFromData-Raw.PNG)
+
+- `usethis::use_data(nom_du_dataset)` enregistre l'objet passé en paramétre au format .rda dans le dossier `data`
+- `checkhelper::use_data_doc("nom_du_dataset")` crée le fichier doc_nom_du_dataset.R dans le dossier `R`
+- `rstudioapi::navigateToFile("R/doc_nom_du_dataset.R")` se déplace à l'intérieur de ce fichier pour insertion des informations de documentation manquantes.
+
+### dans `inst`
+
+Les données insérées ici sont des données brutes à disposition des utilisateurs.
+
+
+
+## Fonctions diverses à connaître :
+
+### Ignorer des fichiers ou dossiers pour le build
+
+```{r use_build_ignore}
+#| label: use_build_ignore
+#| eval: false
+
+usethis::use_build_ignore("dev/")
+```
+
+### Inclure sa définition de fonction dans le dossier R
+
+```{r use_r}
+#| label: use_r
+#| eval: false
+
+usethis::use_r("ma_fonction")
+```
+
+### Effectuer les tests unitaires
+
+```{r tests}
+#| label: tests
+#| eval: false
+
+usethis::use_testthat()
+usethis::use_test("ma_fonction")
+```
+
+la fonction `test_that` :
+
+  - crée un dossier **/tests/that
+  - ajoute {testthat} dans le `suggests` de DESCRIPTION
+  - crée un fichier **/tests/testthat.R** (à ne pas modifier)
+
+### Créer une vignette
+
+```{r vignette}
+#| label: vignette
+#| eval: false
+
+usethis::use_vignette("Le titre de ma vignette")
+```
+
+
+

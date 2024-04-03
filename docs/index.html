@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="anonymous">
+<meta name="author" content="Alain Corvisier">
 
 <title>Développement de packages</title>
 <style>
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./01-unit_tests.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Préface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><em>Préambule</em></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -97,13 +97,6 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Développement de packages</a> 
-        <div class="sidebar-tools-main">
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Basculer en mode lecteur">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -116,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Préface</span></a>
+ <span class="menu-text"><em>Préambule</em></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -128,12 +121,6 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-unit_tests.html" class="sidebar-item-text sidebar-link">
@@ -149,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-restart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Et si on recommençait ?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Et si on recommençait depuis le début ?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -203,13 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12-purrr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">{purrr}</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">En résumé</span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>{purrr}</code></span></span></a>
   </div>
 </li>
       </ul>
@@ -241,7 +222,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#préface" id="toc-préface" class="nav-link active" data-scroll-target="#préface">Préface</a></li>
+  <li><a href="#préambule" id="toc-préambule" class="nav-link active" data-scroll-target="#préambule"><em>Préambule</em></a>
+  <ul class="collapse">
+  <li><a href="#finalité-du-présent-td" id="toc-finalité-du-présent-td" class="nav-link" data-scroll-target="#finalité-du-présent-td">Finalité du présent TD</a></li>
+  <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -254,20 +239,27 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Auteur·rice</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://a-lambda.github.io">Alain Corvisier</a> <a href="mailto:alain.corvisier@proton.me" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            CPAM des FLANDRES
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
-    <div class="quarto-title-meta-contents">
-             <p>anonymous </p>
-          </div>
-  </div>
-    
+      
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">3 octobre 2025</p>
+      <p class="date">2 avril 2024</p>
     </div>
   </div>
   
@@ -280,13 +272,23 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="préface" class="level1 unnumbered">
-<h1 class="unnumbered">Préface</h1><p><img src="images/Rlogo.png" title="Développement de packages" class="quarto-cover-image img-fluid"></p>
+<section id="préambule" class="level1 unnumbered">
+<h1 class="unnumbered"><em>Préambule</em></h1><p><img src="images/Rlogo.png" title="Développement de packages" class="quarto-cover-image img-fluid"></p>
 <p>Ceci est un livre Quarto.</p>
 <p>Pour en apprendre plus sur le sujet vous pouvez visiter <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
 <p>A suivre, quelques exercices liés à la création de packages<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> et à la gestion de versions collaborative (<code>git</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, <code>github</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, ou bien encore <code>gitlab</code><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> vous dévoileront quelques-uns de leurs secrets :)</p>
+<section id="finalité-du-présent-td" class="level2">
+<h2 class="anchored" data-anchor-id="finalité-du-présent-td">Finalité du présent TD</h2>
+<p>Ce TD permet de mettre en pratique les principaux mécanismes à connaître et à mettre en oeuvre pour pouvoir créer et partager son premier package R.</p>
+</section>
+<section id="contexte" class="level2">
+<h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
+<p>Nous allons reprendre votre package <code>{squirrels}</code> qui sert de fil rouge tout au long de la formation.</p>
+<p>Utlisez la table des matières de ce document pour naviguer plus facilement dans les différentes sections.</p>
+<p>Les solutions de ce TD vous seront fournies dans <code>/shared</code> à la fin de chaque étape, sous la forme de fichiers <code>flat_*.Rmd</code> et <code>dev_history.Rmd</code>.</p>
 
 
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -690,8 +692,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-unit_tests.html" class="pagination-link" aria-label="Tests unitaires">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tests unitaires</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

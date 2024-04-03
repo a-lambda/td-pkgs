@@ -1,6 +1,4 @@
----
-title: "Documentation du package"
----
+# Documentation du package
 
 - Construisez le site web pkgdown
 
