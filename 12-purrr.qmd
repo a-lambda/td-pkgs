@@ -1,6 +1,4 @@
----
-title: "`{purrr}`"
----
+# `{purrr}`
 
 ::: {.callout-important collapse="false"}
 

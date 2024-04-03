@@ -1,6 +1,4 @@
----
-title: "Dots"
----
+# Dots
 
 > Votre fonction `save_as_csv()` est chouette, mais elle ne permet pas de modifier l’encodage. Votre formateurice vous a donc ouvert une issue, il y a quelques temps à ce sujet:
 >

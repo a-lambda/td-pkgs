@@ -1,6 +1,4 @@
----
-title: "Tests unitaires"
----
+# Tests unitaires
 
 ## Tester la fonction `get_message_fur_color()`
 
