@@ -7,6 +7,7 @@ format:
     #callout-appearance: simple
     theme:
       light:
+        - cosmo
         - css/callout.css
     lang: "fr"
     cover-image: images/Rlogo.png
