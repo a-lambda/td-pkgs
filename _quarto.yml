@@ -4,6 +4,7 @@ project:
 
 format:
   html:
+    link-external-newwindow: true
     #callout-appearance: simple
     theme:
       light:
