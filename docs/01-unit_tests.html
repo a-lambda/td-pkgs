@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Développement de packages - 1&nbsp; Tests unitaires</title>
 <style>
@@ -276,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Observez la sortie de la commande suivante :</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html">test</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/test.html">test</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="ajouter-et-tester-la-fonction-check_primary_color_is_ok" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="ajouter-et-tester-la-fonction-check_primary_color_is_ok">
 <span class="header-section-number">1.2</span> Ajouter et tester la fonction <code>check_primary_color_is_ok()</code>
@@ -285,14 +285,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Ajoutez un nouveau fichier flat dédié à la vérification des données</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">fusen</span><span class="fu">::</span><span class="fu"><a href="https://thinkr-open.github.io/fusen/reference/add_flat_template.html">add_flat_template</a></span><span class="op">(</span>template  <span class="op">=</span> <span class="st">"additional"</span>,</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">fusen</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/fusen/man/add_flat_template.html">add_flat_template</a></span><span class="op">(</span>template  <span class="op">=</span> <span class="st">"additional"</span>,</span>
 <span>                         flat_name <span class="op">=</span> <span class="st">"check_data"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Définissez un nouveau nom pour la future vignette (dans le chunk d’inflate)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">fusen</span><span class="fu">::</span><span class="fu"><a href="https://thinkr-open.github.io/fusen/reference/inflate.html">inflate</a></span><span class="op">(</span>flat_file     <span class="op">=</span> <span class="st">"dev/flat_check_data.Rmd"</span>, </span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">fusen</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/fusen/man/inflate.html">inflate</a></span><span class="op">(</span>flat_file     <span class="op">=</span> <span class="st">"dev/flat_check_data.Rmd"</span>, </span>
 <span>               vignette_name <span class="op">=</span> <span class="st">"Check data"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -325,8 +325,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Vérifiez que votre package peut s’installer sans encombres</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/build.html">build</a></span><span class="op">(</span>vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># construit le package au format tar.gz</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_local.html">install_local</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"~/squirrels_0.0.0.9000.tar.gz"</span><span class="op">)</span> <span class="co"># installe le package depuis le format tar.gz</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/build.html">build</a></span><span class="op">(</span>vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># construit le package au format tar.gz</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/remotes/man/install_local.html">install_local</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"~/squirrels_0.0.0.9000.tar.gz"</span><span class="op">)</span> <span class="co"># installe le package depuis le format tar.gz</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Est-ce que les fonctions <code>get_message_fur_color()</code> et <code>check_primary_color_is_ok()</code> sont accessibles ?</strong></p>
@@ -412,6 +412,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -446,7 +469,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
