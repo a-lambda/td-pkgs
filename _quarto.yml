@@ -44,7 +44,7 @@ book:
   appendices:
     - href: procedure_package_fusen.qmd
       text: "Créer un package R avec {fusen}"
-
+    - href: commandes.qmd
     # - references.qmd
 
 bibliography: references.bib

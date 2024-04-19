@@ -511,5 +511,192 @@
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Créer un package R avec {fusen}</span>"
     ]
+  },
+  {
+    "objectID": "commandes.html",
+    "href": "commandes.html",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "",
+    "text": "B.1 Création de la structure du package\nfusen::create_fusen(path = \"../GITLAB/squirrels\", template = \"minimal\", flat_name = \"first\")\nLa structure créée est la suivante :\nDans le répertoire principale du projet :",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#création-de-la-structure-du-package",
+    "href": "commandes.html#création-de-la-structure-du-package",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "",
+    "text": "le fichier .gitignore ignore\n\nle dossier .Rproj.user\n\nle fichier .Rhistory\n\nles fichiers .RData, .DS_Store et .httr-oauth\n\n\n\nle fichier .Rbuildignore ignore tout ce qui se trouve dans le dossier dev (^dev$)\n\nLe répertoire dev contient :\n\nun fichier .gitignore ignorant les fichiers *.html et *.R\n\n2 fichiers Rmarkdown\n\n\n0-dev_history.Rmd contenant les données générales ainsi qu’un ensemble de commandes\n\nflat_first.Rmd contenant les définitions de fonctions ainsi que les exemples et les tests unitaires\n\n\n\n\nle dossier R est un dossier réceptacle des futures fonctions",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#création-du-fichier-description",
+    "href": "commandes.html#création-du-fichier-description",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.2 Création du fichier DESCRIPTION",
+    "text": "B.2 Création du fichier DESCRIPTION\n\n# Describe your package\nfusen::fill_description(\n  pkg = here::here(),\n  fields = list(\n    Title = \"Build A Package From Rmarkdown File\",\n    Description = \"Use Rmarkdown First method to build your package. Start your package with documentation. Everything can be set from a Rmarkdown file in your project.\",\n    `Authors@R` = c(\n      person(\"John\", \"Doe\", email = \"john@email.me\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0000-0000-0000\"))\n    )\n  )\n)\n\nVoici le fichier DESCRIPTION généré après avoir alimenté les sections Title, Description et (Authors?)(R?) et lancé la commande fill_description :",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#création-de-la-licence",
+    "href": "commandes.html#création-de-la-licence",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.3 Création de la licence",
+    "text": "B.3 Création de la licence\n\n# Define License with use_*_license()\nusethis::use_mit_license(\"John Doe\")\n\nAprès saisie de l’argument et validation, la commande use_mi_license alimente la section License du fichier DESCRIPTION et génère deux fichiers :\n\nLICENSE\nLICENSE.md",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#vérification-de-la-présence-de-rtools-sous-windows",
+    "href": "commandes.html#vérification-de-la-présence-de-rtools-sous-windows",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.4 Vérification de la présence de Rtools (sous Windows)",
+    "text": "B.4 Vérification de la présence de Rtools (sous Windows)\n\n#|\npkgbuild::has_rtools()\n\n[1] TRUE",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#inflat-des-3-chunks-associés-à-la-fonction",
+    "href": "commandes.html#inflat-des-3-chunks-associés-à-la-fonction",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.5 Inflat des 3 chunks associés à la fonction",
+    "text": "B.5 Inflat des 3 chunks associés à la fonction\n\nB.5.1 Etape de développement dans la section development\n\nCe chunk dédié qui ne sert qu’à l’étape de réflexion sur le contenu de la fonction. Son contenu ne sera jamais intégré dans le fichier généré par l’exécution de la commande inflat.\nOn définit ici :\n\nl’objectif de la fonction\nles paramètres de la fonction\nla valeur de retour de la fonction\n\nB.5.2 Suppression des 3 chunks initiaux\nil est nécessaire de supprimer les 3 chunks function-first, examples-first et tests-first.\n\nB.5.3 Intégration des nouveaux chunks\nDe nouveaux chunks sont insérés dans le fichier flat avec l’addin RStudio &gt; {fusen} &gt; Add {fusen} &gt; chunks pour accueillir la fonction get_message_fur_color\n\nB.5.4 Alimentation du chunk function-get_message_fur_color\n\n\nLa définition de la fonction, se basant sur les étapes de développement préliminaires, est saisie dans le chunk function-get_message_fur_color\n\nLa fonction peut ensuite être documentée\n\nOn positionne le curseur dans le corps de la fonction puis on appelle la commande Code &gt; Insert Roxygen Skeleton\nIl faut ensuite saisir le titre de la fonction (sans point final) et sa description (avec un point final).\nOn vérifie que les sections @param et @return sont correctement complétées.\nOn oublie pas d’insérer la clause “@imporFrom glue glue” pour inclure la dépendance de la fonction dans sa documentation.\n\n\n\nB.5.5 Complétion du chunk examples-get_message_fur_color\n\nSaisie de quelques examples d’utilisation dans cette section\n\nB.5.6 Ecriture d’un(de) test(s) unitaire(s)\nQuelques tests unitaires sont insérés dans le chunk dédié tests-get_message_fur_color\n\nB.5.7 Gonflage du package\n\nfusen::inflate(flat_file = \"dev/flat_study_squirrels.Rmd\", vignette_name = \"Study the squirrels\")\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nIl est possible de vider l’environnement avant d’exécuter la commande inflate pour éviter les conflits\n\n\n\n\n\n\n\n\n\nAttention\n\n\n\n\n\nLe nom du fichier flat passé en argument est dev/flat_study_squirrels.Rmd. Nous devons donc renommer le fichier dev/flat_first.Rmd en ce sens.\n\n\n\nL’exécution de la commande inflate produit :\n\nla création de l’onglet build\nune mise à jour de du fichier DESCRIPTION avec les dépendances\n\n\n\nl’inclusion du fichier get_message_fur_color.R dans le dossier R\ncréation du dossier man avec un fichier get_message_fur_color.Rd (documentation LateX)\ncréation du fichier NAMESPACE à la racine\ncréation du dossier tests/testhat avec insertion des tests unitaires\ncréation du dossier vignettes et ajout de la vignette Rmarkdown\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nPar défaut, la commande inflate lance 2 commandes :\n\n\nattachment::att_amend_desc(), qui génère la documentation\n\ndevtools::check(), qui permet de vérifier que le package suit les règles",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#installation-du-packages",
+    "href": "commandes.html#installation-du-packages",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.6 Installation du packages",
+    "text": "B.6 Installation du packages\nDepuis l’onglet build &gt; Install",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#vérification-de-laide-sur-la-fonction-du-package",
+    "href": "commandes.html#vérification-de-laide-sur-la-fonction-du-package",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.7 Vérification de l’aide sur la fonction du package",
+    "text": "B.7 Vérification de l’aide sur la fonction du package\n\n?get_message_fur_color",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#construction-du-tar.gz",
+    "href": "commandes.html#construction-du-tar.gz",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.8 Construction du tar.gz",
+    "text": "B.8 Construction du tar.gz\n\ndevtools::build(vignettes = TRUE)",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#installation-du-tar.gz",
+    "href": "commandes.html#installation-du-tar.gz",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.9 Installation du tar.gz",
+    "text": "B.9 Installation du tar.gz\n\nremotes::install_local(path = \"squirrels_0.0.0.9000.tar.gz\", build_vignettes = TRUE)",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#création-dun-site-web-dédié-à-la-présentation-du-package",
+    "href": "commandes.html#création-dun-site-web-dédié-à-la-présentation-du-package",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.10 Création d’un site web dédié à la présentation du package",
+    "text": "B.10 Création d’un site web dédié à la présentation du package\n\nusethis::use_pkgdown()\npkgdown::build_site(override = list(destination = \"inst/site\"))",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#ajout-dun-readme",
+    "href": "commandes.html#ajout-dun-readme",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.11 Ajout d’un README",
+    "text": "B.11 Ajout d’un README\n\nusethis::use_readme()\ndevtools::build_readme() # to get README.md",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#ajout-dun-code-de-conduite-coc",
+    "href": "commandes.html#ajout-dun-code-de-conduite-coc",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.12 Ajout d’un code de conduite (COC)",
+    "text": "B.12 Ajout d’un code de conduite (COC)\n\nusethis::use_code_of_conduct(\"contact@fake.com\")",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#ajout-dun-fichier-de-suivi-des-modifications-de-versions",
+    "href": "commandes.html#ajout-dun-fichier-de-suivi-des-modifications-de-versions",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.13 Ajout d’un fichier de suivi des modifications de versions",
+    "text": "B.13 Ajout d’un fichier de suivi des modifications de versions\n\nusethis::use_news_md()\nusethis::use_version() # pour monter en version",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#réaliser-un-test-de-code-coverage-en-local",
+    "href": "commandes.html#réaliser-un-test-de-code-coverage-en-local",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.14 Réaliser un test de code coverage en local",
+    "text": "B.14 Réaliser un test de code coverage en local\n\nquel pourcentage est couvert ?\n\n\ncovr::package_coverage()\n\n\nquel pourcentage ne l’est pas ?\n\n\nmy_coverage &lt;- covr::package_coverage()\ncovr::zero_coverage(my_coverage)\n\n\nrapport de couverture\n\n\ncovr::report()",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#insertion-de-données",
+    "href": "commandes.html#insertion-de-données",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.15 Insertion de données",
+    "text": "B.15 Insertion de données\n\nB.15.1 dans data-raw\n\nCes données sont à destination des développeurs\n\n# crée un répertoire data-raw avec un fichier data_act_squirrels.R\nusethis::use_data_raw(name = \"data_act_squirrels\") \n\nA l’intérieur de ce fichier les instructions sont données pour construire un fichier .rda dans le répertoire data et accessible à l’utilisateur par l’instruction data(nom_du_dataset)\n\n\n\nusethis::use_data(nom_du_dataset) enregistre l’objet passé en paramétre au format .rda dans le dossier data\n\n\ncheckhelper::use_data_doc(\"nom_du_dataset\") crée le fichier doc_nom_du_dataset.R dans le dossier R\n\n\nrstudioapi::navigateToFile(\"R/doc_nom_du_dataset.R\") se déplace à l’intérieur de ce fichier pour insertion des informations de documentation manquantes.\n\nB.15.2 dans inst\n\nLes données insérées ici sont des données brutes à disposition des utilisateurs.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
+  },
+  {
+    "objectID": "commandes.html#fonctions-diverses-à-connaître",
+    "href": "commandes.html#fonctions-diverses-à-connaître",
+    "title": "Annexe B — Mémo Commandes utilisées pour la création de packages",
+    "section": "\nB.16 Fonctions diverses à connaître :",
+    "text": "B.16 Fonctions diverses à connaître :\n\nB.16.1 Ignorer des fichiers ou dossiers pour le build\n\nusethis::use_build_ignore(\"dev/\")\n\n\nB.16.2 Inclure sa définition de fonction dans le dossier R\n\nusethis::use_r(\"ma_fonction\")\n\n\nB.16.3 Effectuer les tests unitaires\n\nusethis::use_testthat()\nusethis::use_test(\"ma_fonction\")\n\nla fonction test_that :\n\ncrée un dossier **/tests/that\najoute {testthat} dans le suggests de DESCRIPTION\ncrée un fichier /tests/testthat.R (à ne pas modifier)\n\nB.16.4 Créer une vignette\n\nusethis::use_vignette(\"Le titre de ma vignette\")",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Mémo Commandes utilisées pour la création de packages</span>"
+    ]
   }
 ]

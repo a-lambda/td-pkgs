@@ -1,9 +1,4 @@
----
-title: "Commandes utilisées pour la création de packages"
-format:
-  html: 
-    code-overflow: wrap
----
+# Mémo Commandes utilisées pour la création de packages {#sec-annexeB}
 
 ## Création de la structure du package 
 
